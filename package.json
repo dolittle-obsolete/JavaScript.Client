@@ -1,0 +1,22 @@
+{
+  "name": "javascript.client",
+  "version": "1.0.0",
+  "description": "Client libraries",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dolittle-interaction/JavaScript.Client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dolittle-interaction/JavaScript.Client/issues"
+  },
+  "devDependencies": {
+    "dolittle.javascript.build": "https://github.com/dolittle/JavaScript.Build.git"
+  },
+  "homepage": "https://github.com/dolittle-interaction/JavaScript.Client#readme"
+}
