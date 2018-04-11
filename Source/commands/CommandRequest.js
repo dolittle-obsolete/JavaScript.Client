@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import { Command } from './Command';
-import { Guid } from 'dolittle-core';
+import { Guid } from '@dolittle/core';
 
 /**
  * Represents a request for issuing a {Command}
