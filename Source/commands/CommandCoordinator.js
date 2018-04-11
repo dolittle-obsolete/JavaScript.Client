@@ -14,11 +14,16 @@ export class CommandCoordinator
     }
 
     handle(command) {
-        this._httpClient.createRequest('/api/Dolittle/Commands')
+        let promise = new Promise((resolve, reject) => {
+            this._httpClient.createRequest('/api/Dolittle/Commands')
             .asPost()
             .withContent(CommandRequest.createFrom(command))
-            .send(data => {
-                debugger;
+            .send()
+            .then(result => {
+                let commandResult = JSON.parse(result.response);
+                resolve(commandResult);
             });
+        });
+        return promise;
     }
 }
