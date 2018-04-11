@@ -1986,7 +1986,7 @@ doctrine@^2.0.0:
 
 "dolittle.javascript.build@https://github.com/dolittle/JavaScript.Build.git":
   version "1.0.0"
-  resolved "https://github.com/dolittle/JavaScript.Build.git#5aba56cdf150b906817745eebda9f754f2a5573a"
+  resolved "https://github.com/dolittle/JavaScript.Build.git#163aafdb2c00eaea6e4f94a454e96cf255341fe4"
   dependencies:
     babel-cli "^6.26.0"
     babel-core "^6.26.0"
