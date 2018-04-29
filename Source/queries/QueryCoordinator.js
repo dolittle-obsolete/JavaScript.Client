@@ -4,6 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 import { HttpClient } from 'aurelia-http-client';
 import { inject } from 'aurelia-framework';
+import { QueryRequest } from './QueryRequest';
 
 @inject(HttpClient)
 export class QueryCoordinator {
