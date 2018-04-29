@@ -16,6 +16,7 @@
     "url": "https://github.com/dolittle-interaction/JavaScript.Client/issues"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "dolittle.javascript.build": "https://github.com/dolittle/JavaScript.Build.git"
   },
   "homepage": "https://github.com/dolittle-interaction/JavaScript.Client#readme"
