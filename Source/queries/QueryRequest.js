@@ -12,15 +12,15 @@ export class QueryRequest {
 
     /**
      * Initializes a new instance of {QueryRequest}
-     * @param {string} name 
+     * @param {string} nameOfQuery 
      * @param {string} generatedFrom 
      * @param {*} content 
      */
-    constructor(name, generatedFrom, content) {
+    constructor(nameOfQuery, generatedFrom, parameters) {
         this.correlationId = Guid.create();
-        this.nameOfQuery = name;
+        this.nameOfQuery = nameOfQuery;
         this.generatedFrom = generatedFrom;
-        this.content = content;
+        this.parameters = parameters;
     }
 
     /**
@@ -28,7 +28,11 @@ export class QueryRequest {
      * @param {Query} query 
      */
     static createFrom(query) {
-        var request = new QueryRequest(query.nameOfQuery, query.generatedFrom, content);
+        let nameOfQuery = query.nameOfQuery;
+        let generatedFrom = query.generatedFrom;
+        delete query.nameOfQuery;
+        delete query.generatedFrom;
+        var request = new QueryRequest(nameOfQuery, generatedFrom, query);
         return request;
     }
 
