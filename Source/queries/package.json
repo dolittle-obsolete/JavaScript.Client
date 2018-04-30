@@ -1,11 +1,11 @@
 {
   "name": "@dolittle/queries",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "transpile": "rm -rf dist && BABEL_ENV=production npx babel . --ignore node_modules,**/for_* -d dist",
+    "transpile": "rm -rf dist && PACKAGE_DISTRIBUTION=true npx babel . --ignore node_modules,**/for_* -d dist",
     "prepublish": "yarn run transpile"
   },
   "author": "",
