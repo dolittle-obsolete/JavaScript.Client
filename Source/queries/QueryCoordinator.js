@@ -14,16 +14,13 @@ export class QueryCoordinator {
     }
 
     execute(query) {
-        let promise = new Promise((resolve, reject) => {
-            this._httpClient.createRequest('/api/Dolittle/Queries')
+        return this._httpClient.createRequest('/api/Dolittle/Queries')
             .asPost()
             .withContent(QueryRequest.createFrom(query))
             .send()
             .then(result => {
                 let queryResult = JSON.parse(result.response);
-                resolve(queryResult);
+                return queryResult;
             });
-        });
-        return promise;
     }
 }
