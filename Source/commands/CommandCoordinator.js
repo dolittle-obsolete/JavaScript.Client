@@ -2,25 +2,24 @@
  *  Copyright (c) Dolittle. All rights reserved.
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-import { HttpClient } from 'aurelia-http-client';
-import { inject } from 'aurelia-framework';
-import { CommandRequest } from './CommandRequest';
+import { CommandRequest } from './CommandRequest'; 
+import { Command } from './Command';
 
-@inject(HttpClient)
-export class CommandCoordinator
-{
-    constructor(httpClient) {
-        this._httpClient = httpClient;
-    }
-
+/**
+ * Represents the coordinator of a {Command}
+ */
+export class CommandCoordinator {
+    /**
+     * Handle a {Command}
+     * @param {Command} command 
+     */
     handle(command) {
-        return this._httpClient.createRequest('/api/Dolittle/Commands')
-            .asPost()
-            .withContent(CommandRequest.createFrom(command))
-            .send()
-            .then(result => {
-                let commandResult = JSON.parse(result.response);
-                return commandResult;
-            });
+        return fetch('/api/Dolittle/Commands', {
+            method: 'POST',
+            body: JSON.stringify(CommandRequest.createFrom(command)),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => response.json());
     }
 }
