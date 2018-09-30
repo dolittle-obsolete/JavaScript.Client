@@ -9,12 +9,14 @@ import { QueryRequest } from './QueryRequest';
  * Represents the coordinator of queries
  */
 export class QueryCoordinator {
+    static apiBaseUrl = '';
+    
     /**
      * Execute a query
      * @param {Query} query 
      */
     execute(query) {
-        return fetch('/api/Dolittle/Queries', {
+        return fetch(`${QueryCoordinator.apiBaseUrl}/api/Dolittle/Queries`, {
             method: 'POST',
             body: JSON.stringify(QueryRequest.createFrom(query)),
             headers: {
