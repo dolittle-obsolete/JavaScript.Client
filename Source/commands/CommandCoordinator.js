@@ -9,12 +9,14 @@ import { Command } from './Command';
  * Represents the coordinator of a {Command}
  */
 export class CommandCoordinator {
+    static apiBaseUrl = '';
+
     /**
      * Handle a {Command}
      * @param {Command} command 
      */
     handle(command) {
-        return fetch('/api/Dolittle/Commands', {
+        return fetch(`${CommandCoordinator.apiBaseUrl}/api/Dolittle/Commands`, {
             method: 'POST',
             body: JSON.stringify(CommandRequest.createFrom(command)),
             headers: {
