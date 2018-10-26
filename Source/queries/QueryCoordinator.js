@@ -17,6 +17,7 @@ export class QueryCoordinator {
      */
     execute(query) {
         return fetch(`${QueryCoordinator.apiBaseUrl}/api/Dolittle/Queries`, {
+            credentials: 'same-origin',
             method: 'POST',
             body: JSON.stringify(QueryRequest.createFrom(query)),
             headers: {
