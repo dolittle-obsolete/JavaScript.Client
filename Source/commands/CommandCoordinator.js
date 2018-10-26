@@ -17,6 +17,7 @@ export class CommandCoordinator {
      */
     handle(command) {
         return fetch(`${CommandCoordinator.apiBaseUrl}/api/Dolittle/Commands`, {
+            credentials: 'same-origin',
             method: 'POST',
             body: JSON.stringify(CommandRequest.createFrom(command)),
             headers: {
