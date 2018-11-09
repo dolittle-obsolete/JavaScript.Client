@@ -1,2 +1,2 @@
-const config = require('dolittle.javascript.build/webpack.specs.config.js');
+const config = require('@dolittle/build/webpack.specs.config.js');
 module.exports = config;
