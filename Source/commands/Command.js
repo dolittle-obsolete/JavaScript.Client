@@ -8,4 +8,17 @@
  */
  export class Command {
     type='';
+    defaultValues={};
+
+    constructor() {
+
+    }
+
+    /**
+     * 
+     * @param {*} values 
+     */
+    setInitialValues(values) {
+
+    }
 }
