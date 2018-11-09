@@ -18,7 +18,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "@dolittle/build": "^1.0.0",
-    "@dolittle/core": "file:core"
+    "@dolittle/core": "file:Source/core"
   },
   "homepage": "https://github.com/dolittle-interaction/JavaScript.Client#readme"
 }
