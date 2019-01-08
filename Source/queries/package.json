@@ -1,6 +1,6 @@
 {
     "name": "@dolittle/queries",
-    "version": "1.0.13",
+    "version": "1.0.14",
     "description": "",
     "publishConfig": {
         "access": "public"
@@ -15,7 +15,9 @@
         "directories": {
             "dist": "dist/systemjs"
         },
-        "dependencies": {}
+        "dependencies": {
+            "@dolittle/core": "^1.0.5"
+        }
     },
     "scripts": {
         "build": "gulp build",
@@ -31,7 +33,9 @@
         "url": "https://github.com/dolittle-interaction/WebAssembly/issues"
     },
     "homepage": "https://github.com/dolittle-interaction/WebAssembly#readme",
-    "dependencies": {},
+    "dependencies": {
+        "@dolittle/core": "^1.0.5"
+    },
     "devDependencies": {},
     "files": [
         "dist"
