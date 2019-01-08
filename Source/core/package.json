@@ -1,16 +1,39 @@
 {
-  "name": "@dolittle/core",
-  "version": "1.0.4",
-  "description": "",
-  "main": "dist/index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "transpile": "rm -rf dist && PACKAGE_DISTRIBUTION=true npx babel . --ignore node_modules,**/for_* -d dist",
-    "prepublish": "yarn run transpile"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "babel-cli": "^6.26.0"
-  }
+    "name": "@dolittle/core",
+    "version": "1.0.4",
+    "description": "",
+    "publishConfig": {
+        "access": "public"
+    },
+    "main": "dist/commonjs/index.js",
+    "module": "dist/esmodule/index.js",
+    "jspm": {
+        "registry": "npm",
+        "jspmPackage": true,
+        "format": "amd",
+        "main": "index",
+        "directories": {
+            "dist": "dist/systemjs"
+        },
+        "dependencies": {}
+    },
+    "scripts": {
+        "build": "gulp build",
+        "prepublish": "yarn build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dolittle-interaction/WebAssembly.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/dolittle-interaction/WebAssembly/issues"
+    },
+    "homepage": "https://github.com/dolittle-interaction/WebAssembly#readme",
+    "dependencies": {},
+    "devDependencies": {},
+    "files": [
+        "dist"
+    ]
 }
