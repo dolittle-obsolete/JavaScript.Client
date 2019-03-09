@@ -10,6 +10,6 @@
         "build": "gulp build"
     },
     "devDependencies": {
-        "@dolittle/build": "^6.2.0"
+        "@dolittle/build": "^6.3.4"
     }
 }
