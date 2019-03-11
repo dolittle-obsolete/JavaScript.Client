@@ -2,8 +2,6 @@
  *  Copyright (c) Dolittle. All rights reserved.
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-import { Observable } from 'rxjs';
-
 /**
  * Defines the base of a command
  */
@@ -17,14 +15,6 @@ import { Observable } from 'rxjs';
     constructor(defaultValues) {
         this.defaultValues = defaultValues || {};
         this.setInitialValues(this.defaultValues);
-
-        let observable = Observable.create((observer) => {
-            observer.next(42);
-        });
-
-        observable.subscribe({
-            next: x => console.log(`Got value ${x}`)
-        });
     }
 
     /**
