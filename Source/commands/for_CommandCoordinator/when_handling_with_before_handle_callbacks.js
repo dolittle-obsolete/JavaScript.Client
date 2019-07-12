@@ -4,6 +4,11 @@
  *--------------------------------------------------------------------------------------------*/
 import { CommandCoordinator } from '../CommandCoordinator';
 
+const firstHeaderKey = 'fourty-two';
+const firstHeaderValue = '42';
+const secondHeaderKey = 'fourty-three';
+const secondHeaderValue = '43';
+
 describe('when handling with before handle callbacks', () => {
     let commandResult = { 'something': 'result' };
     let requestUsed = null;
@@ -37,8 +42,12 @@ describe('when handling with before handle callbacks', () => {
 
 
     (beforeEach => {
-        first_callback = sinon.stub();
-        second_callback = sinon.stub();
+        first_callback = sinon.spy(options => {
+            options.headers[firstHeaderKey] = firstHeaderValue;
+        });
+        second_callback = sinon.spy(options => {
+            options.headers[secondHeaderKey] = secondHeaderValue;
+        });
         CommandCoordinator.beforeHandle(first_callback);
         CommandCoordinator.beforeHandle(second_callback);
         commandCoordinator.handle(command).then(r => result = r);
@@ -46,4 +55,6 @@ describe('when handling with before handle callbacks', () => {
 
     it('call the first callback', () => first_callback.called.should.be.true);
     it('call the second callback', () => second_callback.called.should.be.true);
+    it('should contain the first callbacks header value in fetch options', () => fetchOptions.headers[firstHeaderKey].should.equal(firstHeaderValue));
+    it('should contain the second callbacks header value in fetch options', () => fetchOptions.headers[secondHeaderKey].should.equal(secondHeaderValue));
 });

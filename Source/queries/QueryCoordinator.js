@@ -38,6 +38,6 @@ export class QueryCoordinator {
 
         beforeExecuteCallbacks.forEach(_ => _(options));
 
-        return fetch(`${QueryCoordinator.apiBaseUrl}/api/Dolittle/Queries`, ).then(response => response.json());
+        return fetch(`${QueryCoordinator.apiBaseUrl}/api/Dolittle/Queries`, options).then(response => response.json());
     }
 }
