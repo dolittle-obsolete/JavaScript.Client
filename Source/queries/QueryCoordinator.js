@@ -5,24 +5,39 @@
 import { Query } from './Query';
 import { QueryRequest } from './QueryRequest';
 
+const beforeExecuteCallbacks = [];
+
 /**
  * Represents the coordinator of queries
  */
 export class QueryCoordinator {
     static apiBaseUrl = '';
+
+    /**
+     * Add a callback that gets called before handling a command with the fetch API option object
+     * @param {function} callback 
+     */
+    static beforeExecute(callback) {
+        beforeExecuteCallbacks.push(callback);
+    }
+
     
     /**
      * Execute a query
      * @param {Query} query 
      */
     execute(query) {
-        return fetch(`${QueryCoordinator.apiBaseUrl}/api/Dolittle/Queries`, {
+        let options = {
             credentials: 'same-origin',
             method: 'POST',
             body: JSON.stringify(QueryRequest.createFrom(query)),
             headers: {
                 'Content-Type': 'application/json'
             }
-        }).then(response => response.json());
+        };
+
+        beforeExecuteCallbacks.forEach(_ => _(options));
+
+        return fetch(`${QueryCoordinator.apiBaseUrl}/api/Dolittle/Queries`, ).then(response => response.json());
     }
 }
