@@ -4,15 +4,15 @@
  *--------------------------------------------------------------------------------------------*/
 import { QueryCoordinator } from '../QueryCoordinator';
 
-const firstHeaderKey = 'fourty-two';
-const firstHeaderValue = '42';
-const secondHeaderKey = 'fourty-three';
-const secondHeaderValue = '43';
+const firstHeaderKey: string = 'fourty-two';
+const firstHeaderValue: string = '42';
+const secondHeaderKey: string = 'fourty-three';
+const secondHeaderValue: string = '43';
 
 describe('when executing with before execute handle callbacks', () => {
-    let queryResult = { 'something': 'result' };
-    let requestUsed = null;
-    let fetchOptions = null;
+    let queryResult: any = { 'something': 'result' };
+    let requestUsed: Request = null;
+    let fetchOptions: any = null;
     global.fetch = (request, options) => {
         requestUsed = request;
         fetchOptions = options;
@@ -33,12 +33,12 @@ describe('when executing with before execute handle callbacks', () => {
         }
     };
 
-    let queryCoordinator = new QueryCoordinator();
-    let result = null;
-    let query = {};
+    let queryCoordinator: QueryCoordinator = new QueryCoordinator();
+    let result: any = null;
+    let query: Query = {};
 
-    let first_callback = null;
-    let second_callback = null;
+    let first_callback: function = null;
+    let second_callback: function = null;
     
 
 
