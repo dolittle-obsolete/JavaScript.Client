@@ -5,10 +5,10 @@
 import { CommandCoordinator } from '../CommandCoordinator';
 
 describe('when handling', () => {
-    let commandResult = {'something': 'result'};
-    let requestUsed = null;
-    let fetchOptions = null;
-    global.fetch = (request, options) => {
+    let commandResult: any = {'something': 'result'};
+    let requestUsed: Request = null;
+    let fetchOptions: any = null;
+    global.fetch = (request: Request, options) => {
         requestUsed = request;
         fetchOptions = options;
         return {
@@ -27,9 +27,9 @@ describe('when handling', () => {
             }
         }
     };
-    let commandCoordinator = new CommandCoordinator();
-    let command = {};
-    let result = null;
+    let commandCoordinator: CommandCoordinator = new CommandCoordinator();
+    let command: Command = {};
+    let result: any = null;
 
     (beforeEach => {
         commandCoordinator.handle(command).then(r => result = r);
