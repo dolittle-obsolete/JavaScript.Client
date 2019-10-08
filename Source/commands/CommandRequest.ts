@@ -11,14 +11,14 @@ import { Guid } from '@dolittle/core';
 export class CommandRequest {
     correlationId: string = '';
     type: string = '';
-    content = {};
+    content: any = {};
 
     /**
      * Initializes a new instance of {CommandRequest}
      * @param {string} type 
      * @param {*} content 
      */
-    constructor(type: string, content) {
+    constructor(type: string, content:any) {
         this.correlationId = Guid.create();
         this.type = type;
         this.content = content;
@@ -29,7 +29,7 @@ export class CommandRequest {
      * @param {Command} command 
      */
     static createFrom(command: Command) {
-        var request = new CommandRequest(command.type, command);
+        var request: CommandRequest = new CommandRequest(command.type, command);
         return request;
     }
 }
