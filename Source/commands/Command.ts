@@ -6,7 +6,7 @@
  * Defines the base of a command
  */
  export class Command {
-    type='';
+    type: string='';
     defaultValues={};
 
     /**
