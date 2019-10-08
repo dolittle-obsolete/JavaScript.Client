@@ -7,7 +7,7 @@
  * Defines the base of a query
  */
  export class Query {
-     nameOfQuery="";
-     generatedFrom="";
+     nameOfQuery: string="";
+     generatedFrom: string="";
      readModel=null;
 }
