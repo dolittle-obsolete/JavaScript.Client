@@ -11,13 +11,13 @@ const beforeHandleCallbacks = [];
  * Represents the coordinator of a {Command}
  */
 export class CommandCoordinator {
-    static apiBaseUrl = '';
+    static apiBaseUrl: string = '';
 
     /**
      * Add a callback that gets called before handling a command with the fetch API option object
      * @param {function} callback 
      */
-    static beforeHandle(callback) {
+    static beforeHandle(callback: function) {
         beforeHandleCallbacks.push(callback);
     }
 
@@ -25,7 +25,7 @@ export class CommandCoordinator {
      * Handle a {Command}
      * @param {Command} command 
      */
-    handle(command) {
+    handle(command: Command) {
         let options = {
             credentials: 'same-origin',
             method: 'POST',
