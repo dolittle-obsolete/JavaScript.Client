@@ -11,13 +11,13 @@ const beforeExecuteCallbacks = [];
  * Represents the coordinator of queries
  */
 export class QueryCoordinator {
-    static apiBaseUrl = '';
+    static apiBaseUrl: string = '';
 
     /**
      * Add a callback that gets called before handling a command with the fetch API option object
      * @param {function} callback 
      */
-    static beforeExecute(callback) {
+    static beforeExecute(callback: function) {
         beforeExecuteCallbacks.push(callback);
     }
 
@@ -26,7 +26,7 @@ export class QueryCoordinator {
      * Execute a query
      * @param {Query} query 
      */
-    execute(query) {
+    execute(query: Query) {
         let options = {
             credentials: 'same-origin',
             method: 'POST',
