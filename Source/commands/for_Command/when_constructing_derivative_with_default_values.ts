@@ -16,7 +16,7 @@ describe("when constructing derivative with default values", () => {
         }
     }
 
-    let command = new MyCommand()
+    let command: Command = new MyCommand()
 
     it("should set the integer default value", () => command.someInt.should.equal(defaultValues.someInt));
     it("should set the string default value", () => command.someString.should.equal(defaultValues.someString));
