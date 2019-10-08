@@ -7,7 +7,7 @@
  */
  export class Command {
     type: string='';
-    defaultValues={};
+    defaultValues : any ={};
 
     /**
      * Initializes a new instance of {Command}
