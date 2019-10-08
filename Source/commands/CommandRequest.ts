@@ -9,8 +9,8 @@ import { Guid } from '@dolittle/core';
  * Represents a request for issuing a {Command}
  */
 export class CommandRequest {
-    correlationId = '';
-    type = '';
+    correlationId: string = '';
+    type: string = '';
     content = {};
 
     /**
@@ -18,7 +18,7 @@ export class CommandRequest {
      * @param {string} type 
      * @param {*} content 
      */
-    constructor(type, content) {
+    constructor(type: string, content) {
         this.correlationId = Guid.create();
         this.type = type;
         this.content = content;
@@ -28,7 +28,7 @@ export class CommandRequest {
      * Creates a {CommandRequest} from a {Command}
      * @param {Command} command 
      */
-    static createFrom(command) {
+    static createFrom(command: Command) {
         var request = new CommandRequest(command.type, command);
         return request;
     }
