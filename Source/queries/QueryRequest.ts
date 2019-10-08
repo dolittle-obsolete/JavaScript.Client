@@ -32,7 +32,7 @@ export class QueryRequest {
         let generatedFrom: string = query.generatedFrom;
         delete query.nameOfQuery;
         delete query.generatedFrom;
-        var request = new QueryRequest(nameOfQuery, generatedFrom, query);
+        var request: QueryRequest = new QueryRequest(nameOfQuery, generatedFrom, query);
         return request;
     }
 
