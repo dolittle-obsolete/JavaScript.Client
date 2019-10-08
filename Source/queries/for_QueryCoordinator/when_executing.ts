@@ -5,9 +5,9 @@
 import { QueryCoordinator } from '../QueryCoordinator';
 
 describe('when_executing', () => {
-    let queryResult = { 'something': 'result' };
-    let requestUsed = null;
-    let fetchOptions = null;
+    let queryResult:any = { 'something': 'result' };
+    let requestUsed: Request = null;
+    let fetchOptions:any = null;
     global.fetch = (request, options) => {
         requestUsed = request;
         fetchOptions = options;
@@ -28,9 +28,9 @@ describe('when_executing', () => {
         }
     };
 
-    let queryCoordinator = new QueryCoordinator();
-    let result = null;
-    let query = {};
+    let queryCoordinator: QueryCoordinator = new QueryCoordinator();
+    let result: any = null;
+    let query: Query = {};
 
     (beforeEach => {
         queryCoordinator.execute(query).then(r => result = r);
