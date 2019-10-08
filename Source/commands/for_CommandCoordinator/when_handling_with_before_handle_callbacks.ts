@@ -4,16 +4,16 @@
  *--------------------------------------------------------------------------------------------*/
 import { CommandCoordinator } from '../CommandCoordinator';
 
-const firstHeaderKey = 'fourty-two';
-const firstHeaderValue = '42';
-const secondHeaderKey = 'fourty-three';
-const secondHeaderValue = '43';
+const firstHeaderKey : string = 'fourty-two';
+const firstHeaderValue : string = '42';
+const secondHeaderKey : string = 'fourty-three';
+const secondHeaderValue : string = '43';
 
 describe('when handling with before handle callbacks', () => {
-    let commandResult = { 'something': 'result' };
-    let requestUsed = null;
-    let fetchOptions = null;
-    global.fetch = (request, options) => {
+    let commandResult :any = { 'something': 'result' };
+    let requestUsed: Request = null;
+    let fetchOptions: any = null;
+    global.fetch = (request: Request, options:any) => {
         requestUsed = request;
         fetchOptions = options;
         return {
@@ -32,12 +32,12 @@ describe('when handling with before handle callbacks', () => {
             }
         }
     };
-    let commandCoordinator = new CommandCoordinator();
-    let command = {};
-    let result = null;
+    let commandCoordinator: CommandCoordinator = new CommandCoordinator();
+    let command: Command = {};
+    let result:any = null;
 
-    let first_callback = null;
-    let second_callback = null;
+    let first_callback : function = null;
+    let second_callback : function = null;
 
 
 
