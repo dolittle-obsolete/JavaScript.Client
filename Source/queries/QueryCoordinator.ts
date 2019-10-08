@@ -21,7 +21,6 @@ export class QueryCoordinator {
         beforeExecuteCallbacks.push(callback);
     }
 
-    
     /**
      * Execute a query
      * @param {Query} query 
