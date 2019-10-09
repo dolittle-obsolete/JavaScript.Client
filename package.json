@@ -1,15 +1,15 @@
 {
     "private": true,
     "workspaces": [
-        "Source/commands",
-        "Source/core",
-        "Source/queries",
-        "Source/readmodels"
+      "Source/*"
     ],
     "scripts": {
-        "build": "gulp build"
+      "clean": "yarn workspaces run clean",
+      "build": "yarn workspaces run build",
+      "test": "yarn workspaces run test",
+      "test:run": "yarn workspaces run test:run"
     },
     "devDependencies": {
-        "@dolittle/build": "^6.3.4"
+        "@dolittle/typescript.build": "^1.0.0"
     }
-}
+  }
