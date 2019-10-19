@@ -5,21 +5,23 @@
     "publishConfig": {
         "access": "public"
     },
-    "main": "dist/commonjs/index.js",
-    "module": "dist/esmodule/index.js",
-    "jspm": {
-        "registry": "npm",
-        "jspmPackage": true,
-        "format": "amd",
-        "main": "index",
-        "directories": {
-            "dist": "dist/systemjs"
-        },
-        "dependencies": {}
-    },
+    "main": "lib/index.js",
+    "types": "index.d.ts",
+    "typings": "index.d.ts",
     "scripts": {
-        "build": "gulp build",
-        "prepublish": "yarn build"
+        "ts:clean": "rimraf '**/*.d.ts'",
+        "ts:cjs": "../../node_modules/typescript/bin/tsc -p tsconfig.json --declaration false",
+        "ts:typedefs": "../../node_modules/typescript/bin/tsc --outDir . --emitDeclarationOnly",
+        "ts:all": "yarn ts:cjs && yarn ts:typedefs",
+        
+        "test:clean": "rimraf 'lib/**/for_*'",
+        "test:build": "yarn ts:cjs",
+        "test:run": "mocha --require '@dolittle/typescript.build/mocha.opts' --reporter=spec 'lib/**/for_*/**/*.+(js|ts)'",
+        
+        "clean": "rimraf lib && yarn ts:clean",
+        "build": "yarn clean && yarn ts:all",
+        "test": "yarn test:build && yarn test:run",
+        "prepublishOnly": "yarn build && yarn test:run && yarn test:clean"
     },
     "repository": {
         "type": "git",
@@ -34,6 +36,8 @@
     "dependencies": {},
     "devDependencies": {},
     "files": [
-        "dist"
+        "lib",
+        "package.json",
+        "**/*.d.ts"
     ]
 }

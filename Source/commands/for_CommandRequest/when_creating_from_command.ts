@@ -6,11 +6,11 @@ import { Command } from '../Command';
 import { CommandRequest } from '../CommandRequest';
 
 describe('when creating from command', () => {
-    let command = new Command();
+    let command: Command = new Command();
     command.someInteger = 42;
     command.someString = 'fourty two';
 
-    let result = null;
+    let result: any = null;
     (beforeEach => {
         result = CommandRequest.createFrom(command)
     })();

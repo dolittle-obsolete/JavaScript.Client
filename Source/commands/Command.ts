@@ -6,8 +6,8 @@
  * Defines the base of a command
  */
  export class Command {
-    type='';
-    defaultValues={};
+    type: string='';
+    defaultValues : any ={};
 
     /**
      * Initializes a new instance of {Command}

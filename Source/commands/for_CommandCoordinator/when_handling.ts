@@ -2,20 +2,20 @@
  *  Copyright (c) Dolittle. All rights reserved.
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-import { QueryCoordinator } from '../QueryCoordinator';
+import { CommandCoordinator } from '../CommandCoordinator';
 
-describe('when_executing', () => {
-    let queryResult = { 'something': 'result' };
-    let requestUsed = null;
-    let fetchOptions = null;
-    global.fetch = (request, options) => {
+describe('when handling', () => {
+    let commandResult: any = {'something': 'result'};
+    let requestUsed: Request = null;
+    let fetchOptions: any = null;
+    global.fetch = (request: Request, options) => {
         requestUsed = request;
         fetchOptions = options;
         return {
             then: (callback) => {
                 let result = callback({
                     json: () => {
-                        return queryResult;
+                        return commandResult;
                     }
                 });
 
@@ -27,15 +27,13 @@ describe('when_executing', () => {
             }
         }
     };
-
-    let queryCoordinator = new QueryCoordinator();
-    let result = null;
-    let query = {};
+    let commandCoordinator: CommandCoordinator = new CommandCoordinator();
+    let command: Command = {};
+    let result: any = null;
 
     (beforeEach => {
-        queryCoordinator.execute(query).then(r => result = r);
+        commandCoordinator.handle(command).then(r => result = r);
     })();
 
-    it('should pass an options object', () => fetchOptions.should.be.defined);
-    it('should continue with the result coming back', () => result.should.equal(queryResult));
-})
+    it("should pass along the result", () => result.should.equal(commandResult));
+});

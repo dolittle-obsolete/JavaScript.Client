@@ -2,42 +2,41 @@
  *  Copyright (c) Dolittle. All rights reserved.
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-import { CommandRequest } from './CommandRequest';
-import { Command } from './Command';
+import { Query } from './Query';
+import { QueryRequest } from './QueryRequest';
 
-const beforeHandleCallbacks = [];
+const beforeExecuteCallbacks = [];
 
 /**
- * Represents the coordinator of a {Command}
+ * Represents the coordinator of queries
  */
-export class CommandCoordinator {
-    static apiBaseUrl = '';
+export class QueryCoordinator {
+    static apiBaseUrl: string = '';
 
     /**
      * Add a callback that gets called before handling a command with the fetch API option object
      * @param {function} callback 
      */
-    static beforeHandle(callback) {
-        beforeHandleCallbacks.push(callback);
+    static beforeExecute(callback: function) {
+        beforeExecuteCallbacks.push(callback);
     }
 
     /**
-     * Handle a {Command}
-     * @param {Command} command 
+     * Execute a query
+     * @param {Query} query 
      */
-    handle(command) {
+    execute(query: Query) {
         let options = {
             credentials: 'same-origin',
             method: 'POST',
-            body: JSON.stringify(CommandRequest.createFrom(command)),
+            body: JSON.stringify(QueryRequest.createFrom(query)),
             headers: {
                 'Content-Type': 'application/json'
             }
         };
 
-        beforeHandleCallbacks.forEach(_ => _(options));
+        beforeExecuteCallbacks.forEach(_ => _(options));
 
-        return fetch(`${CommandCoordinator.apiBaseUrl}/api/Dolittle/Commands`, options)
-            .then(response => response.json());
+        return fetch(`${QueryCoordinator.apiBaseUrl}/api/Dolittle/Queries`, options).then(response => response.json());
     }
 }
