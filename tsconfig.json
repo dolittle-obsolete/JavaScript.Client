@@ -1,8 +1,9 @@
 {
     "files": [],
     "references": [
-        {"path": " Source/*"}
-        // {"path": "Source/package2"},
-        // {"path": "Source/package3"},
+        {"path": "Source/commands"},
+        {"path": "Source/core"},
+        {"path": "Source/queries"},
+        {"path": "Source/reqdmodels"}
     ]
 }
