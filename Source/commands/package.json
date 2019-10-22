@@ -1,10 +1,21 @@
 {
     "name": "@dolittle/commands",
-    "version": "1.0.15",
+    "version": "2.0.0",
     "description": "",
+    "author": "",
+    "license": "MIT",
     "publishConfig": {
         "access": "public"
     },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dolittle-interaction/Javascript.Client.git"
+    },
+
+    "bugs": {
+        "url": "https://github.com/dolittle-interaction/Javascript.Client/issues"
+    },
+    "homepage": "https://github.com/dolittle-interaction/Javascript.Client#readme",
     "main": "lib/index.js",
     "types": "index.d.ts",
     "typings": "index.d.ts",
@@ -23,24 +34,14 @@
         "test": "yarn test:build && yarn test:run",
         "prepublishOnly": "yarn build && yarn test:run && yarn test:clean"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/dolittle-interaction/WebAssembly.git"
-    },
-    "author": "",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/dolittle-interaction/WebAssembly/issues"
-    },
-    "homepage": "https://github.com/dolittle-interaction/WebAssembly#readme",
     "dependencies": {
-        "@dolittle/core": "^1.0.5"
+        "@dolittle/core": "^2.0.0"
     },
-    
     "devDependencies": {},
-    "files": [
-        "lib",
-        "package.json",
-        "**/*.d.ts"
-    ]
+    
+  "files": [
+    "lib",
+    "package.json",
+    "**/*.d.ts"
+  ]
 }

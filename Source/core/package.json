@@ -1,17 +1,28 @@
 {
     "name": "@dolittle/core",
-    "version": "1.0.5",
+    "version": "2.0.0",
     "description": "",
+    "author": "",
+    "license": "MIT",
     "publishConfig": {
         "access": "public"
     },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dolittle-interaction/Javascript.Client.git"
+    },
+
+    "bugs": {
+        "url": "https://github.com/dolittle-interaction/Javascript.Client/issues"
+    },
+    "homepage": "https://github.com/dolittle-interaction/Javascript.Client#readme",
     "main": "lib/index.js",
     "types": "index.d.ts",
     "typings": "index.d.ts",
     "scripts": {
         "ts:clean": "rimraf '**/*.d.ts'",
-        "ts:cjs": "../../node_modules/typescript/bin/tsc -p tsconfig.json --declaration false",
-        "ts:typedefs": "../../node_modules/typescript/bin/tsc --outDir . --emitDeclarationOnly",
+        "ts:cjs": "node ../../node_modules/typescript/bin/tsc -p tsconfig.json --declaration false",
+        "ts:typedefs": "node ../../node_modules/typescript/bin/tsc --outDir . --emitDeclarationOnly",
         "ts:all": "yarn ts:cjs && yarn ts:typedefs",
         
         "test:clean": "rimraf 'lib/**/for_*'",
@@ -23,21 +34,13 @@
         "test": "yarn test:build && yarn test:run",
         "prepublishOnly": "yarn build && yarn test:run && yarn test:clean"
     },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/dolittle-interaction/WebAssembly.git"
+    "dependencies": {
     },
-    "author": "",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/dolittle-interaction/WebAssembly/issues"
-    },
-    "homepage": "https://github.com/dolittle-interaction/WebAssembly#readme",
-    "dependencies": {},
     "devDependencies": {},
-    "files": [
-        "lib",
-        "package.json",
-        "**/*.d.ts"
-    ]
+    
+  "files": [
+    "lib",
+    "package.json",
+    "**/*.d.ts"
+  ]
 }
