@@ -2,10 +2,11 @@
  *  Copyright (c) Dolittle. All rights reserved.
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
+import { assert } from 'chai';
 import { CommandCoordinator, ICommand } from '../internal';
 
 describe('when handling', () => {
-    let commandResult: any = {'something': 'result'};
+    let commandResult: any = {something: 'result'};
     let requestUsed: Request;
     let fetchOptions: any;
     (global as any).fetch = (request: Request, options: any) => {
@@ -31,9 +32,9 @@ describe('when handling', () => {
     let command: ICommand = {} as ICommand;
     let result: any;
 
-    beforeEach(() => {
-        commandCoordinator.handle(command).then(r => result = r);
+    beforeEach(async () => {
+        result = await commandCoordinator.handle(command);
     });
 
-    it("should pass along the result", () => result.should.equal(commandResult));
+    it("should pass along the result", () => assert.deepEqual(result, commandResult));
 });
