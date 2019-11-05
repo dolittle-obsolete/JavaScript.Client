@@ -9,9 +9,25 @@ import { ICommand } from './internal';
  * Represents a request for issuing a {Command}
  */
 export class CommandRequest {
-    private _correlationId: string = Guid.empty;
-    private _type: string = Guid.empty;
-    private _content: any = {};
+    /**
+     * The correlation id of the transaction
+     *
+     * @readonly
+     */
+    correlationId = Guid.empty;
+
+    /**
+     * The artifact id of the command
+     *
+     * @readonly
+     */
+    type = Guid.empty;
+    /**
+     * The actual command content
+     *
+     * @readonly
+     */
+    content: any = {};
 
     /**
      * Initializes a new instance of {CommandRequest}
@@ -19,36 +35,9 @@ export class CommandRequest {
      * @param {ICommand} command 
      */
     constructor(type: string, command: ICommand) {
-        this._correlationId = Guid.create();
-        this._type = type;
-        this._content = command;
-    }
-
-    /**
-     * The correlation id of the transaction
-     *
-     * @readonly
-     */
-    get correlationId() {
-        return this._correlationId;
-    }
-
-    /**
-     * The artifact id of the command
-     *
-     * @readonly
-     */
-    get type() {
-        return this._type;
-    }
-
-    /**
-     * The actual command content
-     *
-     * @readonly
-     */
-    get content() {
-        return this._content;
+        this.correlationId = Guid.create();
+        this.type = type;
+        this.content = command;
     }
 
     /**
