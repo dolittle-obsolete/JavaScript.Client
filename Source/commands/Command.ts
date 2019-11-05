@@ -23,7 +23,7 @@ export abstract class Command implements ICommand {
      * @param {string} _type The artifact id of the {Command}
      * @param {any} defaultValues
      */
-    constructor(type: string, defaultValues: any) {
+    constructor(type: string, defaultValues: any = {}) {
         this._type = type;
         this.defaultValues = defaultValues || {};
         this.setInitialValues(this.defaultValues);

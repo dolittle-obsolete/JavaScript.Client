@@ -2,17 +2,17 @@
  *  Copyright (c) Dolittle. All rights reserved.
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-import { CommandCoordinator } from '../CommandCoordinator';
+import { CommandCoordinator, ICommand } from '../internal';
 
 describe('when handling', () => {
     let commandResult: any = {'something': 'result'};
-    let requestUsed: Request = null;
-    let fetchOptions: any = null;
-    global.fetch = (request: Request, options) => {
+    let requestUsed: Request;
+    let fetchOptions: any;
+    (global as any).fetch = (request: Request, options: any) => {
         requestUsed = request;
         fetchOptions = options;
         return {
-            then: (callback) => {
+            then: (callback: Function) => {
                 let result = callback({
                     json: () => {
                         return commandResult;
@@ -20,7 +20,7 @@ describe('when handling', () => {
                 });
 
                 return {
-                    then: (callback) => {
+                    then: (callback: Function) => {
                         callback(result);
                     }
                 }
@@ -28,12 +28,12 @@ describe('when handling', () => {
         }
     };
     let commandCoordinator: CommandCoordinator = new CommandCoordinator();
-    let command: Command = {};
-    let result: any = null;
+    let command: ICommand = {} as ICommand;
+    let result: any;
 
-    (beforeEach => {
+    beforeEach(() => {
         commandCoordinator.handle(command).then(r => result = r);
-    })();
+    });
 
     it("should pass along the result", () => result.should.equal(commandResult));
 });
