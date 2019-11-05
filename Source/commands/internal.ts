@@ -2,6 +2,9 @@
  *  Copyright (c) Dolittle. All rights reserved.
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-const build = require('@dolittle/typescript.build.node');
+export * from './ICommand';
+export * from './ICommandCoordinator';
 
-module.exports = build.wallaby();
+export * from './Command';
+export * from './CommandCoordinator';
+export * from './CommandRequest';

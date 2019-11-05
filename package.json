@@ -4,12 +4,14 @@
       "Source/*"
     ],
     "scripts": {
-      "clean": "yarn workspaces run clean",
-      "build": "yarn workspaces run build",
-      "test": "yarn workspaces run test",
-      "test:run": "yarn workspaces run test:run"
+      "tasks": "gulp --tasks --gulpfile node_modules/@dolittle/typescript.build.node/Gulpfile.js",
+      "clean": "gulp clean --gulpfile node_modules/@dolittle/typescript.build.node/Gulpfile.js",
+      "build": "gulp build --gulpfile node_modules/@dolittle/typescript.build.node/Gulpfile.js",
+      "test": "gulp test --gulpfile node_modules/@dolittle/typescript.build.node/Gulpfile.js",
+      "test:run": "gulp test-run --gulpfile node_modules/@dolittle/typescript.build.node/Gulpfile.js",
+      "test:clean": "gulp test-clean --gulpfile node_modules/@dolittle/typescript.build.node/Gulpfile.js"
     },
     "devDependencies": {
-        "@dolittle/typescript.build": "^1.0.0"
+        "@dolittle/typescript.build.node": "^1.1.0"
     }
   }

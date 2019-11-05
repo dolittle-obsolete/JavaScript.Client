@@ -15,32 +15,25 @@
         "url": "https://github.com/dolittle-interaction/Javascript.Client/issues"
     },
     "homepage": "https://github.com/dolittle-interaction/Javascript.Client#readme",
-    "main": "lib/index.js",
-    "types": "index.d.ts",
-    "typings": "index.d.ts",
+    
+    "files": [
+        "Distribution",
+        "package.json",
+        "**/*.ts"
+    ],
+    "main": "Distribution/index.js",
+    "types": "Distribution/index.d.ts",
     "scripts": {
-        "ts:clean": "rimraf '**/*.d.ts'",
-        "ts:cjs": "node ../../node_modules/typescript/bin/tsc -p tsconfig.json --declaration false",
-        "ts:typedefs": "node ../../node_modules/typescript/bin/tsc --outDir . --emitDeclarationOnly",
-        "ts:all": "yarn ts:cjs && yarn ts:typedefs",
-        
-        "test:clean": "rimraf 'lib/**/for_*'",
-        "test:build": "yarn ts:cjs",
-        "test:run": "mocha --require '@dolittle/typescript.build/mocha.opts' --reporter=spec 'lib/**/for_*/**/*.+(js|ts)'",
-        
-        "clean": "rimraf lib && yarn ts:clean",
-        "build": "yarn clean && yarn ts:all",
-        "test": "yarn test:build && yarn test:run",
+        "tasks": "gulp --tasks --gulpfile ../../node_modules/@dolittle/typescript.build.node/Gulpfile.js",
+        "clean": "gulp clean --gulpfile ../../node_modules/@dolittle/typescript.build.node/Gulpfile.js",
+        "build": "gulp build --gulpfile ../../node_modules/@dolittle/typescript.build.node/Gulpfile.js",
+        "test": "gulp test --gulpfile ../../node_modules/@dolittle/typescript.build.node/Gulpfile.js",
+        "test:run": "gulp test-run --gulpfile ../../node_modules/@dolittle/typescript.build.node/Gulpfile.js",
+        "test:clean": "gulp test-clean --gulpfile ../../node_modules/@dolittle/typescript.build.node/Gulpfile.js",
         "prepublishOnly": "yarn build && yarn test:run && yarn test:clean"
     },
     "dependencies": {
         "@dolittle/core": "^2.0.0"
     },
-    "devDependencies": {},
-    
-  "files": [
-    "lib",
-    "package.json",
-    "**/*.d.ts"
-  ]
+    "devDependencies": {}
 }

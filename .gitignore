@@ -1,4 +1,4 @@
-Source/**/lib
+Source/**/Distribution
 # Logs
 logs
 *.log

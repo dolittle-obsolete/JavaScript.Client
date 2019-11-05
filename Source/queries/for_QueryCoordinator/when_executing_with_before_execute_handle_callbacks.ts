@@ -3,6 +3,7 @@
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import { QueryCoordinator } from '../QueryCoordinator';
+import sinon from 'sinon';
 
 const firstHeaderKey: string = 'fourty-two';
 const firstHeaderValue: string = '42';

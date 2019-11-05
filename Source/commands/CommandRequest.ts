@@ -2,34 +2,60 @@
  *  Copyright (c) Dolittle. All rights reserved.
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-import { Command } from './Command';
 import { Guid } from '@dolittle/core';
+import { Command, ICommand } from './internal';
 
 /**
  * Represents a request for issuing a {Command}
  */
 export class CommandRequest {
-    correlationId: string = '';
-    type: string = '';
-    content: any = {};
+    private _correlationId: string = Guid.empty;
+    private _type: string = Guid.empty;
+    private _content: any = {};
 
     /**
      * Initializes a new instance of {CommandRequest}
-     * @param {string} type 
-     * @param {*} content 
+     * @param {string} type The 
+     * @param {ICommand} command 
      */
-    constructor(type: string, content:any) {
-        this.correlationId = Guid.create();
-        this.type = type;
-        this.content = content;
+    constructor(type: string, command: ICommand) {
+        this._correlationId = Guid.create();
+        this._type = type;
+        this._content = command;
+    }
+
+    /**
+     * The correlation id of the transaction
+     *
+     * @readonly
+     */
+    get correlationId() {
+        return this._correlationId;
+    }
+
+    /**
+     * The artifact id of the command
+     *
+     * @readonly
+     */
+    get type() {
+        return this._type;
+    }
+
+    /**
+     * The actual command content
+     *
+     * @readonly
+     */
+    get content() {
+        return this._content;
     }
 
     /**
      * Creates a {CommandRequest} from a {Command}
-     * @param {Command} command 
+     * @param {ICommand} command 
      */
-    static createFrom(command: Command) {
-        var request: CommandRequest = new CommandRequest(command.type, command);
-        return request;
+    static createFrom(command: ICommand) {
+        return new CommandRequest(command.type, command);
     }
 }

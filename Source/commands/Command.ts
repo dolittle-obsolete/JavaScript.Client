@@ -1,29 +1,45 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Dolittle. All rights reserved.
- *  Licensed under the MIT License. See LICENSE in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
-/**
- * Defines the base of a command
- */
- export class Command {
-    type: string='';
-    defaultValues : any ={};
+*  Copyright (c) Dolittle. All rights reserved.
+*  Licensed under the MIT License. See LICENSE in the project root for license information.
+*--------------------------------------------------------------------------------------------*/
+import { Guid } from '@dolittle/core';
+import { ICommand } from "./internal";
 
+/**
+ * Represents a base implementation of {ICommand}
+ *
+ * @export
+ * @abstract
+ * @class Command
+ * @implements {ICommand}
+ */
+export abstract class Command implements ICommand {
+
+    private _type = Guid.empty;
+
+    defaultValues: any = {};
     /**
-     * Initializes a new instance of {Command}
+     * Creates an instance of Command.
+     * @param {string} _type The artifact id of the {Command}
+     * @param {any} defaultValues
      */
-    constructor(defaultValues) {
+    constructor(type: string, defaultValues: any) {
+        this._type = type;
         this.defaultValues = defaultValues || {};
         this.setInitialValues(this.defaultValues);
+    }
+
+    get type() {
+        return this._type;
     }
 
     /**
      * Set initial values used as basis for typically dirty checking
      * @param {*} values 
      */
-    setInitialValues(values) {
-        for( var property in values ) {
-            this[property] = values[property];
+    setInitialValues(values: any) {
+        for (let property in values) {
+            (this as any)[property] = values[property];
         }
     }
 }
