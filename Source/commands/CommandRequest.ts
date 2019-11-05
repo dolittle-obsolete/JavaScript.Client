@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import { Guid } from '@dolittle/core';
-import { Command, ICommand } from './internal';
+import { ICommand } from './internal';
 
 /**
  * Represents a request for issuing a {Command}

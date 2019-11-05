@@ -5,6 +5,7 @@
 export * from './ICommand';
 export * from './ICommandCoordinator';
 
+export * from './CommandRequest';
+export * from './CommandResponse';
 export * from './Command';
 export * from './CommandCoordinator';
-export * from './CommandRequest';

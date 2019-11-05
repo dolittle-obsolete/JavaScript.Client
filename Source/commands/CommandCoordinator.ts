@@ -2,9 +2,9 @@
  *  Copyright (c) Dolittle. All rights reserved.
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-import { CommandRequest, ICommand, ICommandCoordinator } from './internal';
+import { CommandRequest, ICommand, ICommandCoordinator, CommandResponse } from './internal';
 
-const beforeHandleCallbacks: Function[] = [];
+const beforeHandleCallbacks: ((options: any) => void)[] = [];
 
 /**
  * Represents an implementation of {ICommandCoordinator}
@@ -18,9 +18,9 @@ export class CommandCoordinator implements ICommandCoordinator {
 
     /**
      * Add a callback that gets called before handling a command with the fetch API option object
-     * @param {function} callback 
+     * @param {(options: any) => void} callback 
      */
-    static beforeHandle(callback: Function) {
+    static beforeHandle(callback: (options: any) => void) {
         beforeHandleCallbacks.push(callback);
     }
 
@@ -28,7 +28,7 @@ export class CommandCoordinator implements ICommandCoordinator {
      * Handle a {Command}
      * @param {ICommand} command 
      */
-    handle(command: ICommand) {
+    async handle(command: ICommand) {
         let options = {
             credentials: 'same-origin',
             method: 'POST',
@@ -38,8 +38,10 @@ export class CommandCoordinator implements ICommandCoordinator {
             }
         };
 
-        beforeHandleCallbacks.forEach(_ => _(options));
-        return fetch(`${CommandCoordinator.apiBaseUrl}/api/Dolittle/Commands`, options as any)
-            .then((response: Response) => response.json());
+        beforeHandleCallbacks.forEach(callBack => callBack(options));
+        let response = await fetch(`${CommandCoordinator.apiBaseUrl}/api/Dolittle/Commands`, options as any)
+            .then(response => response.json());
+
+        return response as CommandResponse; 
     }
 }
