@@ -33,7 +33,8 @@
         "prepublishOnly": "yarn build && yarn test:run && yarn test:clean"
     },
     "dependencies": {
-        "@dolittle/core": "^2.0.0"
+        "@dolittle/core": "^2.0.0",
+        "@dolittle/readModels": "^2.0.0",
     },
     "devDependencies": {}
 }
