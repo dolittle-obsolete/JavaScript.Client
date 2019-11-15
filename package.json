@@ -4,14 +4,14 @@
       "Source/*"
     ],
     "scripts": {
-      "tasks": "gulp --tasks --gulpfile node_modules/@dolittle/typescript.build.node/Gulpfile.js",
-      "clean": "gulp clean --gulpfile node_modules/@dolittle/typescript.build.node/Gulpfile.js",
-      "build": "gulp build --gulpfile node_modules/@dolittle/typescript.build.node/Gulpfile.js",
-      "test": "gulp test --gulpfile node_modules/@dolittle/typescript.build.node/Gulpfile.js",
-      "test:run": "gulp test-run --gulpfile node_modules/@dolittle/typescript.build.node/Gulpfile.js",
-      "test:clean": "gulp test-clean --gulpfile node_modules/@dolittle/typescript.build.node/Gulpfile.js"
+      "tasks": "gulp --tasks --gulpfile node_modules/@dolittle/typescript.build/Gulpfile.js",
+      "clean": "gulp clean --gulpfile node_modules/@dolittle/typescript.build/Gulpfile.js",
+      "build": "gulp build --gulpfile node_modules/@dolittle/typescript.build/Gulpfile.js",
+      "test": "gulp test --gulpfile node_modules/@dolittle/typescript.build/Gulpfile.js",
+      "test:run": "gulp test-run --gulpfile node_modules/@dolittle/typescript.build/Gulpfile.js",
+      "test:clean": "gulp test-clean --gulpfile node_modules/@dolittle/typescript.build/Gulpfile.js"
     },
     "devDependencies": {
-        "@dolittle/typescript.build.node": "^1.1.0"
+        "@dolittle/typescript.build": "^5.0.0"
     }
   }
