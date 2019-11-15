@@ -10,72 +10,71 @@ import { CommandRequest } from "./internal"
  * @export
  */
 export type CommandResponse = {
+
     /**
      * The command request that is related to this response
      *
      * @type {CommandRequest}
      */
-    command: CommandRequest;
+    readonly command: CommandRequest;
 
     /**
      * The validation results
      *
      * @type {any[]}
      */
-    validationResults: any[];
+    readonly validationResults: any[];
 
     /**
      * The error messages that are related to command during validation
      *
      * @type {string[]}
      */
-    commandValidationMessages: string[]
+    readonly commandValidationMessages: string[]
 
     /**
      * The messages that are related to broken security rules
      *
      * @type {string[]}
      */
-    securityMessages: string[]
+    readonly securityMessages: string[]
     
     /**
      * All the validation messages
      * @type {string[]}
      */
-    allValidationMessages: string[]
+    readonly allValidationMessages: string[]
 
     /**
      * The exception, if any
      */
-    exception?: any
+    readonly exception?: any
 
     /**
      * The exception message, if any
      *
      * @type {string}
      */
-    exceptionMessage: string
+    readonly exceptionMessage: string
 
     /**
      * The success state of the request
      *
      * @type {boolean}
      */
-    success: boolean
+    readonly success: boolean
 
     /**
      * The validation state of the request
      *
      * @type {boolean}
      */
-    invalid: boolean
+    readonly invalid: boolean
 
     /**
      * Whether or not the command passed security
      *
      * @type {boolean}
      */
-    passedSecurity: boolean
-
-
+    readonly passedSecurity: boolean
 }

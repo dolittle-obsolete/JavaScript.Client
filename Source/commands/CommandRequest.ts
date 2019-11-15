@@ -14,20 +14,20 @@ export class CommandRequest {
      *
      * @readonly
      */
-    correlationId = Guid.empty;
+    readonly correlationId = Guid.empty;
 
     /**
      * The artifact id of the command
      *
      * @readonly
      */
-    type = Guid.empty;
+    readonly type = Guid.empty;
     /**
      * The actual command content
      *
      * @readonly
      */
-    content: any = {};
+    readonly content: any = {};
 
     /**
      * Initializes a new instance of {CommandRequest}

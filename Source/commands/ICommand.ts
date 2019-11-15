@@ -14,11 +14,4 @@ export interface ICommand {
      * @type {string}
      */
     readonly type: string;
-
-    /**
-     * The default values
-     *
-     * @type {*}
-     */
-    defaultValues: any;
 }

@@ -11,10 +11,10 @@ const secondHeaderKey = 'fourty-three';
 const secondHeaderValue = '43';
 
 describe('when handling with before handle callbacks', () => {
-    let commandResult :any = { 'something': 'result' };
+    let commandResult: any = { 'something': 'result' };
     let requestUsed: Request;
-    let fetchOptions: any;
-    (global as any).fetch = (request: Request, options: any) => {
+    let fetchOptions: RequestInit;
+    (global as any).fetch = (request: Request, options: RequestInit) => {
         requestUsed = request;
         fetchOptions = options;
         return {

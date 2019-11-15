@@ -8,8 +8,8 @@ import { CommandCoordinator, ICommand } from '../internal';
 describe('when handling', () => {
     let commandResult: any = {something: 'result'};
     let requestUsed: Request;
-    let fetchOptions: any;
-    (global as any).fetch = (request: Request, options: any) => {
+    let fetchOptions: RequestInit;
+    (global as any).fetch = (request: Request, options: RequestInit) => {
         requestUsed = request;
         fetchOptions = options;
         return {
