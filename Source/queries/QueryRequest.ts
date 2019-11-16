@@ -10,10 +10,15 @@ import { Guid } from '@dolittle/core';
  */
 export class QueryRequest {
 
-    correlationId: string
-    nameOfQuery: string;
-    generatedFrom: string;
-    parameters: string;
+    /**
+     * The correlation id of the request
+     *
+     * @type {string}
+     */
+    readonly correlationId: string
+    readonly nameOfQuery: string;
+    readonly generatedFrom: string;
+    readonly parameters: string;
     
     /**
      * Initializes a new instance of {QueryRequest}
@@ -35,8 +40,8 @@ export class QueryRequest {
     static createFrom(query: IQuery) {
         let nameOfQuery: string = query.nameOfQuery;
         let generatedFrom: string = query.generatedFrom;
-        delete query.nameOfQuery;
-        delete query.generatedFrom;
+        delete (query as any).nameOfQuery;
+        delete (query as any).generatedFrom;
         if ((query as any).readModel !== undefined) delete (query as any).readModel;
         return new QueryRequest(nameOfQuery, generatedFrom, query);;
     }

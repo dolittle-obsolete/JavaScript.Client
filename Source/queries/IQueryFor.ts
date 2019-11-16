@@ -4,14 +4,15 @@
  *--------------------------------------------------------------------------------------------*/
 import { IReadModel } from "@dolittle/readmodels";
 import { IQuery } from "./internal";
+
 /**
- * Defines the base of a query
+ * Defines the base of a query for a specific read model
+ *
+ * @export
+ * @interface IQueryFor
+ * @extends {IQuery<T>}
+ * @template T The IReadModel this is a query for
  */
-export interface IQueryFor<T extends IReadModel> extends IQuery{
-    /**
-     * The {IReadModel} it's a query for 
-     *
-     * @type {T}
-     */
-    readModel: T;
+export interface IQueryFor<T extends IReadModel> extends IQuery<T>{
+    readonly readModel: T;
 }

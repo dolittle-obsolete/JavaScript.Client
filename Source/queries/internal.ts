@@ -4,7 +4,9 @@
  *--------------------------------------------------------------------------------------------*/
 export * from './IQuery';
 export * from './IQueryFor';
+export * from './IQueryCoordinator';
 export * from './Query';
+export * from './QueryFor';
 export * from './QueryRequest';
 export * from './QueryResponse';
 export * from './QueryCoordinator';
