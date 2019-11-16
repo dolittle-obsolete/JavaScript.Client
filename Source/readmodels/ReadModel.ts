@@ -3,6 +3,7 @@
 *  Licensed under the MIT License. See LICENSE in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 import { IReadModel, Artifact } from "./internal";
+import { Guid } from "@dolittle/core";
 
 /**
  * Represents the base implementation of {IReadModel}
@@ -13,7 +14,7 @@ import { IReadModel, Artifact } from "./internal";
  */
 export abstract class ReadModel implements IReadModel {
 
-    readonly artifact: Artifact;
+    readonly artifact: Artifact = new Artifact(Guid.empty, -1);
 
     /**
      * Instantiates an instance of {ReadModel}.
@@ -22,7 +23,7 @@ export abstract class ReadModel implements IReadModel {
     constructor(artifact: Artifact, private _defaultValues: any = {}) {
         this.artifact = artifact;
         this._defaultValues = _defaultValues || {};
-        this.setInitialValues(_defaultValues);
+        this.setInitialValues(this._defaultValues);
     }
 
     /**
