@@ -15,13 +15,18 @@ import { ICommand } from "./internal";
  */
 export abstract class Command implements ICommand {
 
+    readonly type: string;
+
+    /**
+     * Instantiates an instance of {Command}.
+     * @param {string} type
+     * @param {*} [_defaultValues={}]
+     */
     constructor(type: string, private _defaultValues: any = {}) {
         this.type = type;
         _defaultValues = _defaultValues || {};
         this.setInitialValues(this._defaultValues);
     }
-
-    readonly type: string = Guid.empty
 
     /**
      * Set initial values used as basis for typically dirty checking

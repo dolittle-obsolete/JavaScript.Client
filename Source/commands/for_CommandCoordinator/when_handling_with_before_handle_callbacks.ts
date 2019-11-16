@@ -56,6 +56,6 @@ describe('when handling with before handle callbacks', () => {
 
     it('call the first callback', () => first_callback.called.should.be.true);
     it('call the second callback', () => second_callback.called.should.be.true);
-    it('should contain the first callbacks header value in fetch options', () => fetchOptions.headers[firstHeaderKey].should.equal(firstHeaderValue));
-    it('should contain the second callbacks header value in fetch options', () => fetchOptions.headers[secondHeaderKey].should.equal(secondHeaderValue));
+    it('should contain the first callbacks header value in fetch options', () => (fetchOptions.headers as any)[firstHeaderKey].should.equal(firstHeaderValue));
+    it('should contain the second callbacks header value in fetch options', () => (fetchOptions.headers as any)[secondHeaderKey].should.equal(secondHeaderValue));
 });
