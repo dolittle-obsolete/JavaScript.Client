@@ -2,30 +2,27 @@
 *  Copyright (c) Dolittle. All rights reserved.
 *  Licensed under the MIT License. See LICENSE in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
-import { Guid } from '@dolittle/core';
 import { ICommand } from "./index";
 
 /**
  * Represents a base implementation of {ICommand}
  *
  * @export
- * @abstract
  * @class Command
  * @implements {ICommand}
  */
-export abstract class Command implements ICommand {
+export class Command implements ICommand {
 
     readonly type: string;
 
     /**
      * Instantiates an instance of {Command}.
      * @param {string} type
-     * @param {*} [_defaultValues={}]
+     * @param {{[key: string]: any}} [defaultValues={}]
      */
-    constructor(type: string, private _defaultValues: any = {}) {
+    constructor(type: string, defaultValues: {[key: string]: any} = {}) {
         this.type = type;
-        _defaultValues = _defaultValues || {};
-        this.setInitialValues(this._defaultValues);
+        this.setInitialValues(defaultValues);
     }
 
     /**

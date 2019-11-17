@@ -26,12 +26,4 @@ export interface IQuery<T extends IReadModel = any> {
      * @type {string}
      */
     readonly generatedFrom: string;
-
-    /**
-     * The {IReadModel} it's a query for. For {IQuery} it is undefined
-     * 
-     *
-     * @type {T}
-     */
-    readonly readModel?: T
 }

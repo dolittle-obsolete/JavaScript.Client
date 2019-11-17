@@ -24,13 +24,13 @@ export class Artifact {
      *
      * @type {string}
      */
-    readonly id: string = Guid.empty;
+    readonly id: string;
     /**
      * The generation number of the artifact
      *
      * @type {number}
      */
-    readonly generation: number = -1;
+    readonly generation: number;
 
     /**
      * Instantiates an instance of {Artifact}.

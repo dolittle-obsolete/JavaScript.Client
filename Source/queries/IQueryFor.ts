@@ -13,6 +13,12 @@ import { IQuery } from "./index";
  * @extends {IQuery<T>}
  * @template T The IReadModel this is a query for
  */
-export interface IQueryFor<T extends IReadModel> extends IQuery<T>{
+export interface IQueryFor<T extends IReadModel> extends IQuery<T> {
+    
+    /**
+     * The {IReadModel} type that this is a a query for.
+     * 
+     * @type {T}
+     */
     readonly readModel: T;
 }

@@ -9,6 +9,7 @@ import { ICommand } from './index';
  * Represents a request for issuing a {Command}
  */
 export class CommandRequest {
+    
     /**
      * The correlation id of the transaction
      *

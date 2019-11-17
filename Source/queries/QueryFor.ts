@@ -13,11 +13,11 @@ import { IQueryFor } from "./index";
  * @implements {IQueryFor<T>}
  * @template T
  */
-export abstract class QueryFor<T extends IReadModel> implements IQueryFor<T> {
+export class QueryFor<T extends IReadModel> implements IQueryFor<T> {
 
-    readonly nameOfQuery: string = "";
-    readonly generatedFrom: string = "";
-    readonly readModel: T
+    readonly nameOfQuery: string;
+    readonly generatedFrom: string;
+    readonly readModel: T;
 
     /**
      * Instantiates an instance of {QueryFor}.
@@ -30,5 +30,5 @@ export abstract class QueryFor<T extends IReadModel> implements IQueryFor<T> {
         this.generatedFrom = generatedFrom;
         this.readModel = readModel;
     }
-
+    
 }

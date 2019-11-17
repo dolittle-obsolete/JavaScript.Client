@@ -12,18 +12,18 @@ import { Guid } from "@dolittle/core";
  * @class ReadModel
  * @implements {IReadModel}
  */
-export abstract class ReadModel implements IReadModel {
+export class ReadModel implements IReadModel {
 
-    readonly artifact: Artifact = new Artifact(Guid.empty, -1);
+    readonly artifact: Artifact;
 
     /**
      * Instantiates an instance of {ReadModel}.
      * @param {Artifact} artifact
+     * @param {{[key: string]: any}} [defaultValues={}]
      */
-    constructor(artifact: Artifact, private _defaultValues: any = {}) {
+    constructor(artifact: Artifact, defaultValues: {[key: string]: any} = {}) {
         this.artifact = artifact;
-        this._defaultValues = _defaultValues || {};
-        this.setInitialValues(this._defaultValues);
+        this.setInitialValues(defaultValues);
     }
 
     /**

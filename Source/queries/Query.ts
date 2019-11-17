@@ -11,10 +11,10 @@ import { IQuery } from "./index";
  * @class Query
  * @implements {IQuery}
  */
-export abstract class Query implements IQuery {
+export class Query implements IQuery {
 
-    readonly nameOfQuery: string = "";
-    readonly generatedFrom: string = "";
+    readonly nameOfQuery: string;
+    readonly generatedFrom: string;
 
     /**
      * Instantiates an instance of {Query}.
