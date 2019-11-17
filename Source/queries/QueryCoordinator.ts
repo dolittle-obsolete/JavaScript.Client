@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import { IReadModel } from '@dolittle/readmodels';
-import { QueryRequest, IQuery, QueryResponse, IQueryCoordinator } from './internal';
+import { QueryRequest, IQuery, QueryResponse, IQueryCoordinator } from './index';
 
 const beforeExecuteCallbacks: ((options: RequestInit) => void)[] = [];
 

@@ -2,7 +2,7 @@
  *  Copyright (c) Dolittle. All rights reserved.
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-import { Command } from '../internal';
+import { Command } from '../index';
 import { Guid } from '@dolittle/core';
 
 describe("when constructing derivative with default values", () => {

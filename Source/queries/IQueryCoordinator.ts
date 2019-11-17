@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import { IReadModel } from '@dolittle/readmodels';
-import { IQuery, QueryResponse } from './internal';
+import { IQuery, QueryResponse } from './index';
 
 /**
  * Defines a coordinator of queries

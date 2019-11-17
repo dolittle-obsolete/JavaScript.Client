@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import { assert } from 'chai';
-import { CommandCoordinator, ICommand } from '../internal';
+import { CommandCoordinator, ICommand } from '../index';
 
 describe('when handling', () => {
     let commandResult: any = {something: 'result'};

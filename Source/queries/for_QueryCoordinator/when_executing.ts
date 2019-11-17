@@ -2,7 +2,7 @@
  *  Copyright (c) Dolittle. All rights reserved.
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-import { QueryCoordinator, IQuery } from '../internal';
+import { QueryCoordinator, IQuery } from '../index';
 import { expect } from 'chai';
 
 describe('when_executing', () => {

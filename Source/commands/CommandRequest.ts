@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import { Guid } from '@dolittle/core';
-import { ICommand } from './internal';
+import { ICommand } from './index';
 
 /**
  * Represents a request for issuing a {Command}
@@ -22,7 +22,7 @@ export class CommandRequest {
      * @readonly
      */
     readonly type: string;
-    
+
     /**
      * The actual command content
      *

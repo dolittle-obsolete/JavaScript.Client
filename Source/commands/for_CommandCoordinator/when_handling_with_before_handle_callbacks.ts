@@ -3,7 +3,7 @@
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import sinon from 'sinon';
-import { CommandCoordinator, ICommand } from '../internal';
+import { CommandCoordinator, ICommand } from '../index';
 
 const firstHeaderKey = 'fourty-two';
 const firstHeaderValue = '42';
