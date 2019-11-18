@@ -35,7 +35,7 @@ export class QueryCoordinator implements IQueryCoordinator {
             }
         };
         beforeExecuteCallbacks.forEach(_ => _(options));
-        let response = await fetch(`${QueryCoordinator.apiBaseUrl}/api/Dolittle/Queries`, options).then(response => response.json() as Promise<QueryResponse<T>>); 
+        let response = await fetch(`${QueryCoordinator.apiBaseUrl}/Dolittle/Queries`, options).then(response => response.json() as Promise<QueryResponse<T>>); 
         return response;
     }
 }
