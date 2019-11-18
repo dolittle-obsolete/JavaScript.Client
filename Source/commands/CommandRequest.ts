@@ -2,34 +2,51 @@
  *  Copyright (c) Dolittle. All rights reserved.
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-import { Command } from './Command';
 import { Guid } from '@dolittle/core';
+import { ICommand } from './index';
 
 /**
  * Represents a request for issuing a {Command}
  */
 export class CommandRequest {
-    correlationId: string = '';
-    type: string = '';
-    content: any = {};
+    
+    /**
+     * The correlation id of the transaction
+     *
+     * @readonly
+     */
+    readonly correlationId: string;
+
+    /**
+     * The artifact id of the command
+     *
+     * @readonly
+     */
+    readonly type: string;
+
+    /**
+     * The actual command content
+     *
+     * @readonly
+     */
+    readonly content: any;
 
     /**
      * Initializes a new instance of {CommandRequest}
-     * @param {string} type 
-     * @param {*} content 
+     * @param {string} type The 
+     * @param {ICommand} command 
      */
-    constructor(type: string, content:any) {
+    constructor(type: string, command: ICommand) {
         this.correlationId = Guid.create();
         this.type = type;
-        this.content = content;
+        this.content = command;
     }
 
     /**
      * Creates a {CommandRequest} from a {Command}
-     * @param {Command} command 
+     * @param {ICommand} command 
      */
-    static createFrom(command: Command) {
-        var request: CommandRequest = new CommandRequest(command.type, command);
-        return request;
+    static createFrom(command: ICommand) {
+        return new CommandRequest(command.type, command);
     }
 }

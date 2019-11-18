@@ -2,31 +2,30 @@
  *  Copyright (c) Dolittle. All rights reserved.
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-import { CommandRequest } from './CommandRequest';
-import { Command } from './Command';
+import { CommandRequest, ICommand, CommandResponse, ICommandCoordinator } from './index';
 
-const beforeHandleCallbacks = [];
+const beforeHandleCallbacks: ((options: RequestInit) => void)[] = [];
 
 /**
- * Represents the coordinator of a {Command}
+ * Represents an implementation of {ICommandCoordinator}
+ *
+ * @export
+ * @class CommandCoordinator
+ * @implements {ICommandCoordinator}
  */
-export class CommandCoordinator {
+export class CommandCoordinator implements ICommandCoordinator {
     static apiBaseUrl: string = '';
 
     /**
      * Add a callback that gets called before handling a command with the fetch API option object
-     * @param {function} callback 
+     * @param {(options: RequestInit) => void} callback 
      */
-    static beforeHandle(callback: function) {
+    static beforeHandle(callback: (options: RequestInit) => void) {
         beforeHandleCallbacks.push(callback);
     }
 
-    /**
-     * Handle a {Command}
-     * @param {Command} command 
-     */
-    handle(command: Command) {
-        let options = {
+    async handle(command: ICommand) {
+        let options: RequestInit = {
             credentials: 'same-origin',
             method: 'POST',
             body: JSON.stringify(CommandRequest.createFrom(command)),
@@ -34,10 +33,10 @@ export class CommandCoordinator {
                 'Content-Type': 'application/json'
             }
         };
-
-        beforeHandleCallbacks.forEach(_ => _(options));
-
-        return fetch(`${CommandCoordinator.apiBaseUrl}/api/Dolittle/Commands`, options)
+        beforeHandleCallbacks.forEach(callBack => callBack(options));
+        let response = await fetch(`${CommandCoordinator.apiBaseUrl}/api/Dolittle/Commands`, options)
             .then(response => response.json());
+
+        return response as CommandResponse; 
     }
 }

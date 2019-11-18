@@ -1,8 +1,0 @@
-{
-    "files": [],
-    "references": [
-        {"path": " Source/*"}
-        // {"path": "Source/package2"},
-        // {"path": "Source/package3"},
-    ]
-}

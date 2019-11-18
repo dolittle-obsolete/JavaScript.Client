@@ -2,28 +2,28 @@
 *  Copyright (c) Dolittle. All rights reserved.
 *  Licensed under the MIT License. See LICENSE in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
-import { IQuery } from "./index";
+import { IReadModel } from "@dolittle/readmodels";
 
 /**
  * Defines the base of a query
  *
  * @export
- * @class Query
- * @implements {IQuery}
+ * @interface IQuery
+ * @template T IReadModel. Should be 'any' for IQuery
  */
-export class Query implements IQuery {
-
-    readonly nameOfQuery: string;
-    readonly generatedFrom: string;
+export interface IQuery<T extends IReadModel = any> {
 
     /**
-     * Instantiates an instance of {Query}.
-     * @param {string} nameOfQuery
-     * @param {string} generatedFrom
+     * The name of the query
+     *
+     * @type {string}
      */
-    constructor(nameOfQuery: string, generatedFrom: string) {
-        this.nameOfQuery = nameOfQuery; 
-        this.generatedFrom = generatedFrom;
-    }
+    readonly nameOfQuery: string;
 
+    /**
+     * The 'generated from' string
+     *
+     * @type {string}
+     */
+    readonly generatedFrom: string;
 }

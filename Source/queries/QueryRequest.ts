@@ -2,14 +2,24 @@
  *  Copyright (c) Dolittle. All rights reserved.
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-import { Query } from './Query';
+import { IQuery } from './index';
 import { Guid } from '@dolittle/core';
 
- /**
-  * Represents a request for issuing a {Query}
-  */
+/**
+ * Represents a request for issuing a {Query}
+ */
 export class QueryRequest {
 
+    /**
+     * The correlation id of the request
+     *
+     * @type {string}
+     */
+    readonly correlationId: string
+    readonly nameOfQuery: string;
+    readonly generatedFrom: string;
+    readonly parameters: string;
+    
     /**
      * Initializes a new instance of {QueryRequest}
      * @param {string} nameOfQuery 
@@ -27,13 +37,13 @@ export class QueryRequest {
      * Creates a {QueryRequest} from a {Query}
      * @param {Query} query 
      */
-    static createFrom(query: Query) {
+    static createFrom(query: IQuery) {
         let nameOfQuery: string = query.nameOfQuery;
         let generatedFrom: string = query.generatedFrom;
-        delete query.nameOfQuery;
-        delete query.generatedFrom;
-        var request: QueryRequest = new QueryRequest(nameOfQuery, generatedFrom, query);
-        return request;
+        delete (query as any).nameOfQuery;
+        delete (query as any).generatedFrom;
+        if ((query as any).readModel !== undefined) delete (query as any).readModel;
+        return new QueryRequest(nameOfQuery, generatedFrom, query);;
     }
 
 }

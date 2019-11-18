@@ -2,7 +2,8 @@
  *  Copyright (c) Dolittle. All rights reserved.
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-import { Command } from '../Command';
+import { Command } from '../index';
+import { Guid } from '@dolittle/core';
 
 describe("when constructing derivative with default values", () => {
     let defaultValues = {
@@ -12,12 +13,12 @@ describe("when constructing derivative with default values", () => {
 
     class MyCommand extends Command {
         constructor() {
-            super(defaultValues);
+            super(Guid.create(), defaultValues);
         }
     }
 
     let command: Command = new MyCommand()
 
-    it("should set the integer default value", () => command.someInt.should.equal(defaultValues.someInt));
-    it("should set the string default value", () => command.someString.should.equal(defaultValues.someString));
+    it("should set the integer default value", () => (command as any).someInt.should.equal(defaultValues.someInt));
+    it("should set the string default value", () => (command as any).someString.should.equal(defaultValues.someString));
 });

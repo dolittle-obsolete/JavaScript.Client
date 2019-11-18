@@ -1,46 +1,37 @@
 {
     "name": "@dolittle/commands",
-    "version": "1.0.15",
+    "version": "2.0.0",
     "description": "",
+    "author": "",
+    "license": "MIT",
     "publishConfig": {
         "access": "public"
     },
-    "main": "lib/index.js",
-    "types": "index.d.ts",
-    "typings": "index.d.ts",
-    "scripts": {
-        "ts:clean": "rimraf '**/*.d.ts'",
-        "ts:cjs": "node ../../node_modules/typescript/bin/tsc -p tsconfig.json --declaration false",
-        "ts:typedefs": "node ../../node_modules/typescript/bin/tsc --outDir . --emitDeclarationOnly",
-        "ts:all": "yarn ts:cjs && yarn ts:typedefs",
-        
-        "test:clean": "rimraf 'lib/**/for_*'",
-        "test:build": "yarn ts:cjs",
-        "test:run": "mocha --require '@dolittle/typescript.build/mocha.opts' --reporter=spec 'lib/**/for_*/**/*.+(js|ts)'",
-        
-        "clean": "rimraf lib && yarn ts:clean",
-        "build": "yarn clean && yarn ts:all",
-        "test": "yarn test:build && yarn test:run",
-        "prepublishOnly": "yarn build && yarn test:run && yarn test:clean"
-    },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/dolittle-interaction/WebAssembly.git"
+        "url": "git+https://github.com/dolittle-interaction/Javascript.Client.git"
     },
-    "author": "",
-    "license": "MIT",
     "bugs": {
-        "url": "https://github.com/dolittle-interaction/WebAssembly/issues"
+        "url": "https://github.com/dolittle-interaction/Javascript.Client/issues"
     },
-    "homepage": "https://github.com/dolittle-interaction/WebAssembly#readme",
-    "dependencies": {
-        "@dolittle/core": "^1.0.5"
-    },
-    
-    "devDependencies": {},
+    "homepage": "https://github.com/dolittle-interaction/Javascript.Client#readme",
     "files": [
-        "lib",
+        "Distribution",
         "package.json",
-        "**/*.d.ts"
-    ]
+        "**/*.ts"
+    ],
+    "main": "Distribution/index.js",
+    "types": "Distribution/index.d.ts",
+    "scripts": {
+        "tasks": "gulp --tasks --gulpfile ../../node_modules/@dolittle/typescript.build/Gulpfile.js",
+        "clean": "gulp clean --gulpfile ../../node_modules/@dolittle/typescript.build/Gulpfile.js",
+        "build": "gulp build --gulpfile ../../node_modules/@dolittle/typescript.build/Gulpfile.js",
+        "test": "gulp test --gulpfile ../../node_modules/@dolittle/typescript.build/Gulpfile.js",
+        "test:run": "gulp test-run --gulpfile ../../node_modules/@dolittle/typescript.build/Gulpfile.js",
+        "test:clean": "gulp test-clean --gulpfile ../../node_modules/@dolittle/typescript.build/Gulpfile.js",
+        "prepublishOnly": "yarn build && yarn test:run && yarn test:clean"
+    },
+    "dependencies": {
+        "@dolittle/core": "^2.0.0"
+    }
 }

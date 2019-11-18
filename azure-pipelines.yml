@@ -9,4 +9,4 @@ resources:
       endpoint: dolittle-tools
 
 jobs:
-- template: Source/TypeScript/framework.yml@templates
+- template: Source/TypeScript/pipeline.yml@templates

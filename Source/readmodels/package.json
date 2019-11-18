@@ -1,43 +1,38 @@
 {
     "name": "@dolittle/readmodels",
-    "version": "1.0.2",
+    "version": "2.0.0",
     "description": "",
+    "author": "",
+    "license": "MIT",
     "publishConfig": {
         "access": "public"
     },
-    "main": "dist/commonjs/index.js",
-    "module": "dist/esmodule/index.js",
-    "jspm": {
-        "registry": "npm",
-        "jspmPackage": true,
-        "format": "amd",
-        "main": "index",
-        "directories": {
-            "dist": "dist/systemjs"
-        },
-        "dependencies": {
-            "@dolittle/core": "^1.0.5"
-        }
-    },
-    "scripts": {
-        "build": "gulp build",
-        "prepublish": "yarn build"
-    },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/dolittle-interaction/WebAssembly.git"
+        "url": "git+https://github.com/dolittle-interaction/Javascript.Client.git"
     },
-    "author": "",
-    "license": "MIT",
+
     "bugs": {
-        "url": "https://github.com/dolittle-interaction/WebAssembly/issues"
+        "url": "https://github.com/dolittle-interaction/Javascript.Client/issues"
     },
-    "homepage": "https://github.com/dolittle-interaction/WebAssembly#readme",
-    "dependencies": {
-        "@dolittle/core": "^1.0.5"
-    },
-    "devDependencies": {},
+    "homepage": "https://github.com/dolittle-interaction/Javascript.Client#readme",
     "files": [
-        "dist"
-    ]
+        "Distribution",
+        "package.json",
+        "**/*.ts"
+    ],
+    "main": "Distribution/index.js",
+    "types": "Distribution/index.d.ts",
+    "scripts": {
+        "tasks": "gulp --tasks --gulpfile ../../node_modules/@dolittle/typescript.build/Gulpfile.js",
+        "clean": "gulp clean --gulpfile ../../node_modules/@dolittle/typescript.build/Gulpfile.js",
+        "build": "gulp build --gulpfile ../../node_modules/@dolittle/typescript.build/Gulpfile.js",
+        "test": "gulp test --gulpfile ../../node_modules/@dolittle/typescript.build/Gulpfile.js",
+        "test:run": "gulp test-run --gulpfile ../../node_modules/@dolittle/typescript.build/Gulpfile.js",
+        "test:clean": "gulp test-clean --gulpfile ../../node_modules/@dolittle/typescript.build/Gulpfile.js",
+        "prepublishOnly": "yarn build && yarn test:run && yarn test:clean"
+    },
+    "dependencies": {
+        "@dolittle/core": "^2.0.0"
+    }
 }

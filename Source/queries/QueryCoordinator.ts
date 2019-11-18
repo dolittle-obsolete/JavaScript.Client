@@ -2,22 +2,22 @@
  *  Copyright (c) Dolittle. All rights reserved.
  *  Licensed under the MIT License. See LICENSE in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
-import { Query } from './Query';
-import { QueryRequest } from './QueryRequest';
+import { IReadModel } from '@dolittle/readmodels';
+import { QueryRequest, IQuery, QueryResponse, IQueryCoordinator } from './index';
 
-const beforeExecuteCallbacks = [];
+const beforeExecuteCallbacks: ((options: RequestInit) => void)[] = [];
 
 /**
  * Represents the coordinator of queries
  */
-export class QueryCoordinator {
+export class QueryCoordinator implements IQueryCoordinator {
     static apiBaseUrl: string = '';
 
     /**
      * Add a callback that gets called before handling a command with the fetch API option object
      * @param {function} callback 
      */
-    static beforeExecute(callback: function) {
+    static beforeExecute(callback: (options: RequestInit) => void) {
         beforeExecuteCallbacks.push(callback);
     }
 
@@ -25,8 +25,8 @@ export class QueryCoordinator {
      * Execute a query
      * @param {Query} query 
      */
-    execute(query: Query) {
-        let options = {
+    async execute<T extends IReadModel>(query: IQuery<T>) {
+        let options: RequestInit = {
             credentials: 'same-origin',
             method: 'POST',
             body: JSON.stringify(QueryRequest.createFrom(query)),
@@ -34,9 +34,8 @@ export class QueryCoordinator {
                 'Content-Type': 'application/json'
             }
         };
-
         beforeExecuteCallbacks.forEach(_ => _(options));
-
-        return fetch(`${QueryCoordinator.apiBaseUrl}/api/Dolittle/Queries`, options).then(response => response.json());
+        let response = await fetch(`${QueryCoordinator.apiBaseUrl}/api/Dolittle/Queries`, options).then(response => response.json() as Promise<QueryResponse<T>>); 
+        return response;
     }
 }

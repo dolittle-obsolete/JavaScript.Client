@@ -1,33 +1,37 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Dolittle. All rights reserved.
- *  Licensed under the MIT License. See LICENSE in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
+*  Copyright (c) Dolittle. All rights reserved.
+*  Licensed under the MIT License. See LICENSE in the project root for license information.
+*--------------------------------------------------------------------------------------------*/
+import { ICommand } from "./index";
+
 /**
- * Defines the base of a command
+ * Represents a base implementation of {ICommand}
+ *
+ * @export
+ * @class Command
+ * @implements {ICommand}
  */
- export class Command {
-    type: string='';
-    defaultValues : any ={};
+export class Command implements ICommand {
+
+    readonly type: string;
 
     /**
-     * Initializes a new instance of {Command}
+     * Instantiates an instance of {Command}.
+     * @param {string} type
+     * @param {{[key: string]: any}} [defaultValues={}]
      */
-    constructor(defaultValues) {
-        this.defaultValues = defaultValues || {};
-        this.setInitialValues(this.defaultValues);
+    constructor(type: string, defaultValues: {[key: string]: any} = {}) {
+        this.type = type;
+        this.setInitialValues(defaultValues);
     }
 
     /**
      * Set initial values used as basis for typically dirty checking
      * @param {*} values 
      */
-    setInitialValues(values) {
-        for( var property in values ) {
-            this[property] = values[property];
+    setInitialValues(values: any) {
+        for (let property in values) {
+            (this as any)[property] = values[property];
         }
     }
 }
-
-
-// https://github.com/jdanyow/aurelia-async
-// https://stackoverflow.com/questions/37089977/how-to-get-current-value-of-rxjs-subject-or-observable
