@@ -35,6 +35,5 @@
     "dependencies": {
         "@dolittle/core": "^2.0.0",
         "@dolittle/readmodels": "^2.0.0"
-    },
-    "devDependencies": {}
+    }
 }

@@ -16,7 +16,6 @@
         "url": "https://github.com/dolittle-interaction/Javascript.Client/issues"
     },
     "homepage": "https://github.com/dolittle-interaction/Javascript.Client#readme",
-    
     "files": [
         "Distribution",
         "package.json",
@@ -35,7 +34,5 @@
     },
     "dependencies": {
         "@dolittle/core": "^2.0.0"
-    },
-    "devDependencies": {}
-    
+    }
 }

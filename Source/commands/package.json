@@ -32,10 +32,6 @@
         "prepublishOnly": "yarn build && yarn test:run && yarn test:clean"
     },
     "dependencies": {
-        "@dolittle/core": "^2.0.0",
-        "@types/node-fetch": "^2.5.3",
-        "node-fetch": "^2.6.0"
-    },
-    "devDependencies": {
+        "@dolittle/core": "^2.0.0"
     }
 }
