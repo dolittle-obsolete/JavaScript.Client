@@ -1,7 +1,7 @@
 #!/bin/bash
 script_folder=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd "$script_folder"
-cd ../commands
+cd ../Source/commands
 npm link
 cd ../core
 npm link
