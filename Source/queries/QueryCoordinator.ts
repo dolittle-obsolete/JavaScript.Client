@@ -11,7 +11,7 @@ const beforeExecuteCallbacks: ((options: RequestInit) => void)[] = [];
  * Represents the coordinator of queries
  */
 export class QueryCoordinator implements IQueryCoordinator {
-    static apiBaseUrl: string = '';
+    static apiBaseUrl: string = '/api';
 
     /**
      * Add a callback that gets called before handling a command with the fetch API option object
@@ -35,7 +35,7 @@ export class QueryCoordinator implements IQueryCoordinator {
             }
         };
         beforeExecuteCallbacks.forEach(_ => _(options));
-        let response = await fetch(`${QueryCoordinator.apiBaseUrl}/api/Dolittle/Queries`, options).then(response => response.json() as Promise<QueryResponse<T>>); 
+        let response = await fetch(`${QueryCoordinator.apiBaseUrl}/Dolittle/Queries`, options).then(response => response.json() as Promise<QueryResponse<T>>); 
         return response;
     }
 }

@@ -14,7 +14,7 @@ const beforeHandleCallbacks: ((options: RequestInit) => void)[] = [];
  * @implements {ICommandCoordinator}
  */
 export class CommandCoordinator implements ICommandCoordinator {
-    static apiBaseUrl: string = '';
+    static apiBaseUrl: string = '/api';
 
     /**
      * Add a callback that gets called before handling a command with the fetch API option object
@@ -34,7 +34,7 @@ export class CommandCoordinator implements ICommandCoordinator {
             }
         };
         beforeHandleCallbacks.forEach(callBack => callBack(options));
-        let response = await fetch(`${CommandCoordinator.apiBaseUrl}/api/Dolittle/Commands`, options)
+        let response = await fetch(`${CommandCoordinator.apiBaseUrl}/Dolittle/Commands`, options)
             .then(response => response.json());
 
         return response as CommandResponse; 
