@@ -11,7 +11,7 @@ const beforeExecuteCallbacks: ((options: RequestInit) => void)[] = [];
  * Represents the coordinator of queries
  */
 export class QueryCoordinator implements IQueryCoordinator {
-    static apiBaseUrl: string = '';
+    static apiBaseUrl: string = '/api';
 
     /**
      * Add a callback that gets called before handling a command with the fetch API option object
