@@ -1,9 +1,7 @@
-/*---------------------------------------------------------------------------------------------
-*  Copyright (c) Dolittle. All rights reserved.
-*  Licensed under the MIT License. See LICENSE in the project root for license information.
-*--------------------------------------------------------------------------------------------*/
+// Copyright (c) Dolittle. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-import { Guid } from "@dolittle/core";
+import { Guid } from '@dolittle/core';
 /**
  * Represents an Artifact
  */
@@ -16,7 +14,7 @@ export class Artifact {
      * @static
      */
     static get empty() {
-        return new Artifact(Guid.empty, 1)
+        return new Artifact(Guid.empty, 1);
     }
 
     /**
