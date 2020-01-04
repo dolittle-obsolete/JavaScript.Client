@@ -1,8 +1,7 @@
-/*---------------------------------------------------------------------------------------------
-*  Copyright (c) Dolittle. All rights reserved.
-*  Licensed under the MIT License. See LICENSE in the project root for license information.
-*--------------------------------------------------------------------------------------------*/
-import { IReadModel } from "@dolittle/readmodels";
+// Copyright (c) Dolittle. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+import { IReadModel } from '@dolittle/readmodels';
 
 /**
  * Defines the base of a query

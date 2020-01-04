@@ -11,7 +11,7 @@ const secondHeaderKey: string = 'fourty-three';
 const secondHeaderValue: string = '43';
 
 describe('when executing with before execute handle callbacks', () => {
-    let queryResult: any = { 'something': 'result' };
+    const queryResult: any = { 'something': 'result' };
     let requestUsed: Request;
     let fetchOptions: RequestInit;
     (global as any).fetch = (request: Request, options: RequestInit) => {
@@ -19,7 +19,7 @@ describe('when executing with before execute handle callbacks', () => {
         fetchOptions = options;
         return {
             then: (callback: any) => {
-                let result = callback({
+                const result = callback({
                     json: () => {
                         return queryResult;
                     }
@@ -29,18 +29,18 @@ describe('when executing with before execute handle callbacks', () => {
                     then: (callback: any) => {
                         callback(result);
                     }
-                }
+                };
             }
-        }
+        };
     };
 
-    let queryCoordinator: QueryCoordinator = new QueryCoordinator();
+    const queryCoordinator: QueryCoordinator = new QueryCoordinator();
     let result: any = null;
-    let query: IQuery = {} as IQuery;
+    const query: IQuery = {} as IQuery;
 
     let first_callback: any;
     let second_callback: any;
-    
+
 
 
     (beforeEach => {
@@ -60,4 +60,4 @@ describe('when executing with before execute handle callbacks', () => {
     it('should call the second callback', () => second_callback.called.should.be.true);
     it('should contain the first callbacks header value in fetch options', () => (fetchOptions.headers as any)[firstHeaderKey].should.equal(firstHeaderValue));
     it('should contain the second callbacks header value in fetch options', () => (fetchOptions.headers as any)[secondHeaderKey].should.equal(secondHeaderValue));
-})
+});
