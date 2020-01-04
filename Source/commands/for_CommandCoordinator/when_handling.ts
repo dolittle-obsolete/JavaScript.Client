@@ -1,12 +1,11 @@
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Dolittle. All rights reserved.
- *  Licensed under the MIT License. See LICENSE in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
+// Copyright (c) Dolittle. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 import { assert } from 'chai';
 import { CommandCoordinator, ICommand } from '../index';
 
 describe('when handling', () => {
-    let commandResult: any = {something: 'result'};
+    const commandResult: any = {something: 'result'};
     let requestUsed: Request;
     let fetchOptions: RequestInit;
     (global as any).fetch = (request: Request, options: RequestInit) => {
@@ -14,7 +13,7 @@ describe('when handling', () => {
         fetchOptions = options;
         return {
             then: (callback: Function) => {
-                let result = callback({
+                const result = callback({
                     json: () => {
                         return commandResult;
                     }
@@ -24,17 +23,17 @@ describe('when handling', () => {
                     then: (callback: Function) => {
                         callback(result);
                     }
-                }
+                };
             }
-        }
+        };
     };
-    let commandCoordinator: CommandCoordinator = new CommandCoordinator();
-    let command: ICommand = {} as ICommand;
+    const commandCoordinator: CommandCoordinator = new CommandCoordinator();
+    const command: ICommand = {} as ICommand;
     let result: any;
 
     beforeEach(async () => {
         result = await commandCoordinator.handle(command);
     });
 
-    it("should pass along the result", () => assert.deepEqual(result, commandResult));
+    it('should pass along the result', () => assert.deepEqual(result, commandResult));
 });

@@ -1,7 +1,6 @@
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) Dolittle. All rights reserved.
- *  Licensed under the MIT License. See LICENSE in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
+// Copyright (c) Dolittle. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 import { Guid } from '@dolittle/core';
 import { ICommand } from './index';
 
@@ -9,7 +8,7 @@ import { ICommand } from './index';
  * Represents a request for issuing a {Command}
  */
 export class CommandRequest {
-    
+
     /**
      * The correlation id of the transaction
      *
@@ -33,8 +32,8 @@ export class CommandRequest {
 
     /**
      * Initializes a new instance of {CommandRequest}
-     * @param {string} type The 
-     * @param {ICommand} command 
+     * @param {string} type The
+     * @param {ICommand} command
      */
     constructor(type: string, command: ICommand) {
         this.correlationId = Guid.create();
@@ -44,7 +43,7 @@ export class CommandRequest {
 
     /**
      * Creates a {CommandRequest} from a {Command}
-     * @param {ICommand} command 
+     * @param {ICommand} command
      */
     static createFrom(command: ICommand) {
         return new CommandRequest(command.type, command);
