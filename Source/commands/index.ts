@@ -8,3 +8,8 @@ export * from './CommandRequest';
 export * from './CommandResponse';
 export * from './Command';
 export * from './CommandCoordinator';
+
+export * from './CommandInputValidationResult';
+export * from './ICommandInputValidators';
+export * from './CommandInputValidators';
+
