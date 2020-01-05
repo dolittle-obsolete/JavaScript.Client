@@ -2,11 +2,12 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 import { BrokenRule } from '@dolittle/rules';
+import { CommandResponse } from './index';
 
 /**
- * Represents the result after an evaluation of input validation of a command
+ * Represents the result after handling a command
  */
-export class CommandInputValidationResult {
+export class CommandResult {
 
     /**
      * Initializes a new instance of the {CommandInputValidationResult} class.
@@ -29,5 +30,14 @@ export class CommandInputValidationResult {
      */
     get brokenRules(): ReadonlyArray<BrokenRule> {
         return this._brokenRules;
+    }
+
+    /**
+     * Create a {CommandResult} from a {CommandResponse}.
+     * @param {CommandResponse} response - Response to create from.
+     * @returns {CommandResult}
+     */
+    static fromResponse(response: CommandResponse): CommandResult {
+        return new CommandResult([]);
     }
 }

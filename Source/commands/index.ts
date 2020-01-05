@@ -4,8 +4,11 @@
 export * from './ICommand';
 export * from './ICommandCoordinator';
 
+export * from './BrokenRuleResponse';
+
 export * from './CommandRequest';
 export * from './CommandResponse';
+export * from './CommandResult';
 export * from './Command';
 export * from './CommandCoordinator';
 
