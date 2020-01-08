@@ -33,4 +33,4 @@ export type BrokenRuleResponse = {
      * @type {string}
      */
     readonly causes: any[];
-}
+};

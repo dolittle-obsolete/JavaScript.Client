@@ -19,7 +19,7 @@ export type CommandResponse = {
 
     /**
      * All the broken rules
-     * 
+     *
      * @type {BrokenRuleResponse[]}
      */
     readonly brokenRules: BrokenRuleResponse[];
