@@ -1,7 +1,7 @@
 // Copyright (c) Dolittle. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-import { CommandRequest, CommandResponse, CommandResult, ICommand, ICommandInputValidators, ICommandCoordinator } from './index';
+import { CommandRequest, CommandResponse, CommandResult, ICommand, ICommandInputValidators, ICommandCoordinator, CommandInputValidators } from './index';
 
 const beforeHandleCallbacks: ((options: RequestInit) => void)[] = [];
 
@@ -19,7 +19,7 @@ export class CommandCoordinator implements ICommandCoordinator {
      * Initializes a new instance of the {CommandCoordinator} class.
      * @param {ICommandInputValidators} _commandInputValidators - The system for working with input validators.
      */
-    constructor(private _commandInputValidators: ICommandInputValidators) {
+    constructor(private _commandInputValidators: ICommandInputValidators = new CommandInputValidators()) {
     }
 
     /**
