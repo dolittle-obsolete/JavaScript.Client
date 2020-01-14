@@ -1,9 +1,7 @@
-/*---------------------------------------------------------------------------------------------
-*  Copyright (c) Dolittle. All rights reserved.
-*  Licensed under the MIT License. See LICENSE in the project root for license information.
-*--------------------------------------------------------------------------------------------*/
+// Copyright (c) Dolittle. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 import { IReadModel, Artifact } from './index';
-import { Guid } from '@dolittle/core';
 
 /**
  * Represents the base implementation of {IReadModel}

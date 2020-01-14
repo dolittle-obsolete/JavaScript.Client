@@ -1,11 +1,10 @@
-/*---------------------------------------------------------------------------------------------
-*  Copyright (c) Dolittle. All rights reserved.
-*  Licensed under the MIT License. See LICENSE in the project root for license information.
-*--------------------------------------------------------------------------------------------*/
-import { CommandRequest } from './index';
+// Copyright (c) Dolittle. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+import { BrokenRuleResponse, CommandRequest } from './index';
 
 /**
- * Represents a command response
+ * Represents the result after a command handling.
  *
  * @export
  */
@@ -17,6 +16,13 @@ export type CommandResponse = {
      * @type {CommandRequest}
      */
     readonly command: CommandRequest;
+
+    /**
+     * All the broken rules
+     *
+     * @type {BrokenRuleResponse[]}
+     */
+    readonly brokenRules: BrokenRuleResponse[];
 
     /**
      * The validation results

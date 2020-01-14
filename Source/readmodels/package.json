@@ -1,6 +1,6 @@
 {
     "name": "@dolittle/readmodels",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "",
     "author": "",
     "license": "MIT",
@@ -11,7 +11,6 @@
         "type": "git",
         "url": "git+https://github.com/dolittle-interaction/Javascript.Client.git"
     },
-
     "bugs": {
         "url": "https://github.com/dolittle-interaction/Javascript.Client/issues"
     },
@@ -32,6 +31,7 @@
         "test": "gulp test --gulpfile ../../node_modules/@dolittle/typescript.build/Gulpfile.js",
         "test:run": "gulp test-run --gulpfile ../../node_modules/@dolittle/typescript.build/Gulpfile.js",
         "test:clean": "gulp test-clean --gulpfile ../../node_modules/@dolittle/typescript.build/Gulpfile.js",
+        "lint-fix": "gulp lint-fix --gulpfile ../../node_modules/@dolittle/typescript.build/Gulpfile.js",
         "prepublishOnly": "yarn build && yarn test:run && yarn test:clean"
     },
     "dependencies": {

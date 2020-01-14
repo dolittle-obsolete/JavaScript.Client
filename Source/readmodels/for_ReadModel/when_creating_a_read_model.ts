@@ -1,7 +1,6 @@
-/*---------------------------------------------------------------------------------------------
-*  Copyright (c) Dolittle. All rights reserved.
-*  Licensed under the MIT License. See LICENSE in the project root for license information.
-*--------------------------------------------------------------------------------------------*/
+// Copyright (c) Dolittle. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
 import { Artifact, ReadModel } from '../index';
 import { Guid } from '@dolittle/core';
 import { expect } from 'chai';
@@ -30,5 +29,4 @@ describe('when creating a read model', () => {
     it('should have some number property', () => expect(read_model.some_number).to.not.be.undefined);
     it('should have some string property with the correct value', () => expect(read_model.some_string).to.be.equal(some_string));
     it('should have some number property with the correct value', () => expect(read_model.some_number).to.be.equal(some_number));
-
 });
