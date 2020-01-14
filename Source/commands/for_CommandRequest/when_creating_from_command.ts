@@ -3,7 +3,7 @@
 
 import { CommandRequest } from '../index';
 import { a_command } from './given/a_command';
-import { Guid } from '@dolittle/core';
+import { Guid } from '@dolittle/rudiments';
 import { expect } from 'chai';
 
 describe('when creating from command', () => {

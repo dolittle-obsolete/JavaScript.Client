@@ -1,5 +1,5 @@
 {
-    "name": "@dolittle/readmodels",
+    "name": "@dolittle/client.readmodels",
     "version": "2.0.1",
     "description": "",
     "author": "",
@@ -33,6 +33,6 @@
         "prepublishOnly": "yarn build && yarn test:run && yarn test:clean"
     },
     "dependencies": {
-        "@dolittle/core": "^2.0.0"
+        "@dolittle/rudiments": "^2.0.0"
     }
 }

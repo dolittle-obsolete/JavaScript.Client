@@ -2,7 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 import { IQuery } from './index';
-import { Guid } from '@dolittle/core';
+import { Guid } from '@dolittle/rudiments';
 
 /**
  * Represents a request for issuing a {Query}
@@ -26,7 +26,7 @@ export class QueryRequest {
      * @param {*} parameters
      */
     constructor(nameOfQuery: string, generatedFrom: string, parameters: any) {
-        this.correlationId = Guid.create();
+        this.correlationId = Guid.create().toString();
         this.nameOfQuery = nameOfQuery;
         this.generatedFrom = generatedFrom;
         this.parameters = parameters;

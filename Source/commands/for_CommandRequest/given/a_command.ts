@@ -2,7 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 import { Command } from '../../index';
-import { Guid } from '@dolittle/core';
+import { Guid } from '@dolittle/rudiments';
 
 export class a_command extends Command {
 
@@ -10,6 +10,6 @@ export class a_command extends Command {
     someString: string | undefined;
 
     constructor() {
-        super(Guid.create(), {});
+        super(Guid.create().toString(), {});
     }
 }

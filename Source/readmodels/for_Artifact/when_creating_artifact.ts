@@ -2,11 +2,11 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 import { Artifact } from '../index';
-import { Guid } from '@dolittle/core';
+import { Guid } from '@dolittle/rudiments';
 import { expect } from 'chai';
 
 describe('when creating artifact', () => {
-    const guid = Guid.create();
+    const guid = Guid.create().toString();
     const generation = 3;
     const artifact = new Artifact(guid, generation);
 

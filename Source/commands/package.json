@@ -1,6 +1,6 @@
 {
     "name": "@dolittle/client.commands",
-    "version": "2.0.1",
+    "version": "1.0.0",
     "description": "",
     "author": "",
     "license": "MIT",
@@ -33,7 +33,7 @@
         "prepublishOnly": "yarn build && yarn test:run && yarn test:clean"
     },
     "dependencies": {
-        "@dolittle/core": "^2.0.0",
+        "@dolittle/rudiments": "^2.0.0",
         "@dolittle/sdk.commands": "^1.0.0",
         "@dolittle/sdk.commands.validation": "^1.0.0"
     }
