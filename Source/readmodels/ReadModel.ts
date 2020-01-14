@@ -2,8 +2,8 @@
 *  Copyright (c) Dolittle. All rights reserved.
 *  Licensed under the MIT License. See LICENSE in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
-import { IReadModel, Artifact } from "./index";
-import { Guid } from "@dolittle/core";
+import { IReadModel, Artifact } from './index';
+import { Guid } from '@dolittle/core';
 
 /**
  * Represents the base implementation of {IReadModel}
@@ -28,10 +28,10 @@ export class ReadModel implements IReadModel {
 
     /**
      * Set initial values used as basis for typically dirty checking
-     * @param {*} values 
+     * @param {*} values
      */
     setInitialValues(values: any) {
-        for (let property in values) {
+        for (const property in values) {
             (this as any)[property] = values[property];
         }
     }

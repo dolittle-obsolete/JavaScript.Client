@@ -16,10 +16,10 @@ class a_read_model extends ReadModel {
 }
 describe('when creating a read model with default values', () => {
 
-    let artifact = new Artifact(Guid.create(), 1);
-    let some_string = 'string';
-    let some_number = 10;
-    let read_model = new a_read_model(artifact, {some_number, some_string});
+    const artifact = new Artifact(Guid.create(), 1);
+    const some_string = 'string';
+    const some_number = 10;
+    const read_model = new a_read_model(artifact, {some_number, some_string});
 
     it('should not be undefined', () => expect(read_model).to.not.be.undefined);
     it('should have the correct artifact id', () => read_model.artifact.id.should.be.equal(artifact.id));

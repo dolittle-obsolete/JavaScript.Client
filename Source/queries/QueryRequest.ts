@@ -15,16 +15,16 @@ export class QueryRequest {
      *
      * @type {string}
      */
-    readonly correlationId: string
+    readonly correlationId: string;
     readonly nameOfQuery: string;
     readonly generatedFrom: string;
     readonly parameters: string;
-    
+
     /**
      * Initializes a new instance of {QueryRequest}
-     * @param {string} nameOfQuery 
-     * @param {string} generatedFrom 
-     * @param {*} parameters 
+     * @param {string} nameOfQuery
+     * @param {string} generatedFrom
+     * @param {*} parameters
      */
     constructor(nameOfQuery: string, generatedFrom: string, parameters: any) {
         this.correlationId = Guid.create();
@@ -35,15 +35,15 @@ export class QueryRequest {
 
     /**
      * Creates a {QueryRequest} from a {Query}
-     * @param {Query} query 
+     * @param {Query} query
      */
     static createFrom(query: IQuery) {
-        let nameOfQuery: string = query.nameOfQuery;
-        let generatedFrom: string = query.generatedFrom;
+        const nameOfQuery: string = query.nameOfQuery;
+        const generatedFrom: string = query.generatedFrom;
         delete (query as any).nameOfQuery;
         delete (query as any).generatedFrom;
         if ((query as any).readModel !== undefined) delete (query as any).readModel;
-        return new QueryRequest(nameOfQuery, generatedFrom, query);;
+        return new QueryRequest(nameOfQuery, generatedFrom, query);
     }
 
 }

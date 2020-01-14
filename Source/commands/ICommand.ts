@@ -7,7 +7,7 @@
  * Defines the base structure of a Command
  */
 export interface ICommand {
-    
+
     /**
      * The Artifact Id that represents the type of the Command.
      *

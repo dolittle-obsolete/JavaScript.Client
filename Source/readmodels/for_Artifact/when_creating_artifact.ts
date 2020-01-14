@@ -6,9 +6,9 @@ import { Artifact } from '../index';
 import { Guid } from '@dolittle/core';
 import { expect } from 'chai';
 describe('when creating artifact', () => {
-    let guid = Guid.create();
-    let generation = 3;
-    let artifact = new Artifact(guid, generation);
+    const guid = Guid.create();
+    const generation = 3;
+    const artifact = new Artifact(guid, generation);
 
     it('should not be undefined', () => expect(artifact).to.not.be.undefined);
     it('should have the correct id', () => artifact.id.should.be.equal(guid));

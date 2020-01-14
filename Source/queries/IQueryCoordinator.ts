@@ -12,7 +12,7 @@ export interface IQueryCoordinator {
 
     /**
      * Execute a query
-     * @param {Query} query 
+     * @param {Query} query
      * @returns {Promise<QueryResponse<T>>}
      */
     execute<T extends IReadModel>(query: IQuery<T>): Promise<QueryResponse<T>>

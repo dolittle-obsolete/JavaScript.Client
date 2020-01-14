@@ -15,7 +15,7 @@ export class QueryCoordinator implements IQueryCoordinator {
 
     /**
      * Add a callback that gets called before handling a command with the fetch API option object
-     * @param {function} callback 
+     * @param {function} callback
      */
     static beforeExecute(callback: (options: RequestInit) => void) {
         beforeExecuteCallbacks.push(callback);
@@ -23,10 +23,10 @@ export class QueryCoordinator implements IQueryCoordinator {
 
     /**
      * Execute a query
-     * @param {Query} query 
+     * @param {Query} query
      */
     async execute<T extends IReadModel>(query: IQuery<T>) {
-        let options: RequestInit = {
+        const options: RequestInit = {
             credentials: 'same-origin',
             method: 'POST',
             body: JSON.stringify(QueryRequest.createFrom(query)),
@@ -35,7 +35,7 @@ export class QueryCoordinator implements IQueryCoordinator {
             }
         };
         beforeExecuteCallbacks.forEach(_ => _(options));
-        let response = await fetch(`${QueryCoordinator.apiBaseUrl}/Dolittle/Queries`, options).then(response => response.json() as Promise<QueryResponse<T>>); 
+        const response = await fetch(`${QueryCoordinator.apiBaseUrl}/Dolittle/Queries`, options).then(response => response.json() as Promise<QueryResponse<T>>);
         return response;
     }
 }

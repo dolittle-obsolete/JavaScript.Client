@@ -16,10 +16,10 @@ class a_read_model extends ReadModel {
 }
 describe('when creating a read model', () => {
 
-    let artifact = new Artifact(Guid.create(), 1);
-    let some_string = 'string';
-    let some_number = 10;
-    let read_model = new a_read_model(artifact);
+    const artifact = new Artifact(Guid.create(), 1);
+    const some_string = 'string';
+    const some_number = 10;
+    const read_model = new a_read_model(artifact);
     read_model.some_number = some_number;
     read_model.some_string = some_string;
 

@@ -8,15 +8,11 @@ import { Guid } from '@dolittle/core';
 import { expect } from 'chai';
 
 describe('when creating from command', () => {
-    let command = new a_command();
+    const command = new a_command();
     command.someInteger = 42;
     command.someString = 'fourty two';
-    
-    let command_request = CommandRequest.createFrom(command)
 
-    beforeEach(() => {
-        
-    });
+    const command_request = CommandRequest.createFrom(command);
 
     it('should return an instance', () => expect(command_request).to.not.be.null);
     it('should set a correlation id', () => command_request.correlationId.should.not.equal(''));

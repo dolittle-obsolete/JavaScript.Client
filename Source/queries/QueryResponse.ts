@@ -71,4 +71,4 @@ export type QueryResponse<T extends IReadModel> = {
      * @type {T[]}
      */
     items: T[]
-}
+};

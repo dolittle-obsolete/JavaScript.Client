@@ -7,10 +7,10 @@ import { Guid } from '@dolittle/core';
 
 export class a_command extends Command {
 
-    someInteger: number | undefined 
-    someString: string | undefined
-    
+    someInteger: number | undefined;
+    someString: string | undefined;
+
     constructor() {
         super(Guid.create(), {});
     }
-} 
+}

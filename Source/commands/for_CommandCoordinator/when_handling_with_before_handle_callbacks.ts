@@ -11,7 +11,7 @@ const secondHeaderKey = 'fourty-three';
 const secondHeaderValue = '43';
 
 describe('when handling with before handle callbacks', () => {
-    let commandResult: any = { 'something': 'result' };
+    const commandResult: any = { 'something': 'result' };
     let requestUsed: Request;
     let fetchOptions: RequestInit;
     (global as any).fetch = (request: Request, options: RequestInit) => {
@@ -19,7 +19,7 @@ describe('when handling with before handle callbacks', () => {
         fetchOptions = options;
         return {
             then: (callback: any) => {
-                let result = callback({
+                const result = callback({
                     json: () => {
                         return commandResult;
                     }
@@ -29,12 +29,12 @@ describe('when handling with before handle callbacks', () => {
                     then: (callback: any) => {
                         callback(result);
                     }
-                }
+                };
             }
-        }
+        };
     };
-    let commandCoordinator: CommandCoordinator = new CommandCoordinator();
-    let command: ICommand = {} as ICommand;
+    const commandCoordinator: CommandCoordinator = new CommandCoordinator();
+    const command: ICommand = {} as ICommand;
     let result: any;
 
     let first_callback: any;

@@ -3,7 +3,7 @@
 *  Licensed under the MIT License. See LICENSE in the project root for license information.
 *--------------------------------------------------------------------------------------------*/
 
-import { Guid } from "@dolittle/core";
+import { Guid } from '@dolittle/core';
 /**
  * Represents an Artifact
  */
@@ -16,7 +16,7 @@ export class Artifact {
      * @static
      */
     static get empty() {
-        return new Artifact(Guid.empty, 1)
+        return new Artifact(Guid.empty, 1);
     }
 
     /**

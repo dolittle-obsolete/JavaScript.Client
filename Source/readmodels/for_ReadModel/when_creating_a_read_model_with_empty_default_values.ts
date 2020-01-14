@@ -16,8 +16,8 @@ class a_read_model extends ReadModel {
 }
 describe('when creating a read model with empty default values', () => {
 
-    let artifact = new Artifact(Guid.create(), 1);
-    let read_model = new a_read_model(artifact);
+    const artifact = new Artifact(Guid.create(), 1);
+    const read_model = new a_read_model(artifact);
 
     it('should not be undefined', () => expect(read_model).to.not.be.undefined);
     it('should have the correct artifact id', () => read_model.artifact.id.should.be.equal(artifact.id));

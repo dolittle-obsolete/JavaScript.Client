@@ -6,7 +6,7 @@ import { QueryCoordinator, IQuery } from '../index';
 import { expect } from 'chai';
 
 describe('when_executing', () => {
-    let queryResult:any = { 'something': 'result' };
+    const queryResult: any = { 'something': 'result' };
     let requestUsed: Request;
     let fetchOptions: any;
     (global as any).fetch = (request: Request, options: RequestInit) => {
@@ -14,7 +14,7 @@ describe('when_executing', () => {
         fetchOptions = options;
         return {
             then: (callback: any) => {
-                let result = callback({
+                const result = callback({
                     json: () => {
                         return queryResult;
                     }
@@ -24,14 +24,14 @@ describe('when_executing', () => {
                     then: (callback: any) => {
                         callback(result);
                     }
-                }
+                };
             }
-        }
+        };
     };
 
-    let queryCoordinator: QueryCoordinator = new QueryCoordinator();
+    const queryCoordinator: QueryCoordinator = new QueryCoordinator();
     let result: any = null;
-    let query: IQuery = {} as IQuery;
+    const query: IQuery = {} as IQuery;
 
     (beforeEach => {
         queryCoordinator.execute(query).then(r => result = r);
@@ -39,4 +39,4 @@ describe('when_executing', () => {
 
     it('should pass an options object', () => expect(fetchOptions).to.not.be.undefined);
     it('should continue with the result coming back', () => result.should.equal(queryResult));
-})
+});

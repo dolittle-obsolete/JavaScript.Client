@@ -7,7 +7,7 @@ import { Guid } from '@dolittle/core';
 import { expect } from 'chai';
 
 describe('when getting empty artifact', () => {
-    let artifact = Artifact.empty;
+    const artifact = Artifact.empty;
 
     it('should not be undefined', () => expect(artifact).to.not.be.undefined);
     it('should have an id that represents an empty guid', () => artifact.id.should.be.equal(Guid.empty));
