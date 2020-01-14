@@ -2,7 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 import { Guid } from '@dolittle/core';
-import { ICommand } from './index';
+import { ICommand } from '@dolittle/sdk.commands';
 
 /**
  * Represents a request for issuing a {Command}

@@ -1,7 +1,9 @@
 // Copyright (c) Dolittle. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-import { CommandRequest, CommandResponse, CommandResult, ICommand, ICommandInputValidators, ICommandCoordinator } from './index';
+import { CommandRequest, CommandResult, ICommandCoordinator } from './index';
+import { ICommand } from '@dolittle/sdk.commands';
+import { ICommandInputValidators } from '@dolittle/sdk.commands.validation';
 
 const beforeHandleCallbacks: ((options: RequestInit) => void)[] = [];
 
@@ -46,6 +48,7 @@ export class CommandCoordinator implements ICommandCoordinator {
             }
         };
         beforeHandleCallbacks.forEach(callBack => callBack(options));
+
         const response = await fetch(`${CommandCoordinator.apiBaseUrl}/Dolittle/Commands`, options)
             .then(response => response.json());
 

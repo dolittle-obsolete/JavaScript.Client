@@ -1,5 +1,5 @@
 {
-    "name": "@dolittle/commands",
+    "name": "@dolittle/client.commands",
     "version": "2.0.1",
     "description": "",
     "author": "",
@@ -34,7 +34,7 @@
     },
     "dependencies": {
         "@dolittle/core": "^2.0.0",
-        "@dolittle/rules": "^2.0.0",
-        "@dolittle/validation": "^2.0.0"
+        "@dolittle/sdk.commands": "^1.0.0",
+        "@dolittle/sdk.commands.validation": "^1.0.0"
     }
 }

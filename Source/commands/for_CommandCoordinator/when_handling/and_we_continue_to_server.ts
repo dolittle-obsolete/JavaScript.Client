@@ -2,16 +2,18 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 import { a_command_coordinator } from '../given/a_command_coordinator';
-import { CommandResult, ICommand } from '../../index';
+import { CommandResult } from '../../index';
+import { ICommand } from '@dolittle/sdk.commands';
 import sinon from 'sinon';
 
-describe('and we continue to server', () => {
+describe('and we continue to server', async () => {
     const context = new a_command_coordinator();
 
     const commandResponseLiteral = {
         json: sinon.stub()
     };
     (global as any).fetch = (request: Request, options: RequestInit) => {
+        console.log('Hello world');
         return {
             then: (callback: Function) => {
                 const result = callback(commandResponseLiteral);

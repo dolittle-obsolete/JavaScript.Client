@@ -2,12 +2,13 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 import { a_command_coordinator } from '../given/a_command_coordinator';
-import { CommandCoordinator, CommandResult, ICommand } from '../../index';
+import { CommandCoordinator, CommandResult } from '../../index';
+import { ICommand } from '@dolittle/sdk.commands';
 import sinon from 'sinon';
 
-const firstHeaderKey = 'fourty-two';
+const firstHeaderKey = 'forty-two';
 const firstHeaderValue = '42';
-const secondHeaderKey = 'fourty-three';
+const secondHeaderKey = 'forty-three';
 const secondHeaderValue = '43';
 
 describe('with before handle callbacks', () => {

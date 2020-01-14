@@ -2,7 +2,9 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 import { a_command_coordinator } from '../given/a_command_coordinator';
-import { CommandInputValidationResult, CommandResult, ICommand } from '../../index';
+import { CommandResult } from '../../index';
+import { ICommand } from '@dolittle/sdk.commands';
+import { CommandInputValidationResult } from '@dolittle/sdk.commands.validation';
 import { BrokenRule } from '@dolittle/rules';
 import sinon from 'sinon';
 
