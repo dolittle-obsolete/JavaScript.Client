@@ -2,7 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 import { Command } from '../index';
-import { Guid } from '@dolittle/core';
+import { Guid } from '@dolittle/rudiments';
 
 describe('when constructing derivative with default values', () => {
     const defaultValues = {
@@ -12,7 +12,7 @@ describe('when constructing derivative with default values', () => {
 
     class MyCommand extends Command {
         constructor() {
-            super(Guid.create(), defaultValues);
+            super(Guid.create().toString(), defaultValues);
         }
     }
 

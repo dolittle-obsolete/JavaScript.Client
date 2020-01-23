@@ -2,7 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 import { Artifact, ReadModel } from '../index';
-import { Guid } from '@dolittle/core';
+import { Guid } from '@dolittle/rudiments';
 import { expect } from 'chai';
 
 class a_read_model extends ReadModel {
@@ -15,7 +15,7 @@ class a_read_model extends ReadModel {
 }
 describe('when creating a read model', () => {
 
-    const artifact = new Artifact(Guid.create(), 1);
+    const artifact = new Artifact(Guid.create().toString(), 1);
     const some_string = 'string';
     const some_number = 10;
     const read_model = new a_read_model(artifact);

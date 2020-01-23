@@ -1,8 +1,8 @@
 // Copyright (c) Dolittle. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-import { Guid } from '@dolittle/core';
-import { ICommand } from './index';
+import { Guid } from '@dolittle/rudiments';
+import { ICommand } from '@dolittle/sdk.commands';
 
 /**
  * Represents a request for issuing a {Command}
@@ -36,7 +36,7 @@ export class CommandRequest {
      * @param {ICommand} command
      */
     constructor(type: string, command: ICommand) {
-        this.correlationId = Guid.create();
+        this.correlationId = Guid.create().toString();
         this.type = type;
         this.content = command;
     }

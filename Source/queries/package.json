@@ -1,6 +1,6 @@
 {
-    "name": "@dolittle/queries",
-    "version": "2.0.1",
+    "name": "@dolittle/client.queries",
+    "version": "1.0.0",
     "description": "",
     "author": "",
     "license": "MIT",
@@ -35,7 +35,7 @@
         "prepublishOnly": "yarn build && yarn test:run && yarn test:clean"
     },
     "dependencies": {
-        "@dolittle/core": "^2.0.0",
-        "@dolittle/readmodels": "^2.0.0"
+        "@dolittle/readmodels": "^2.0.0",
+        "@dolittle/rudiments": "^2.0.0"
     }
 }
