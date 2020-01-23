@@ -3,7 +3,7 @@
 
 import { CommandRequest, CommandResult, ICommandCoordinator } from './index';
 import { ICommand } from '@dolittle/sdk.commands';
-import { ICommandInputValidators } from '@dolittle/sdk.commands.validation';
+import { ICommandInputValidators, CommandInputValidators } from '@dolittle/sdk.commands.validation';
 
 const beforeHandleCallbacks: ((options: RequestInit) => void)[] = [];
 
@@ -21,7 +21,7 @@ export class CommandCoordinator implements ICommandCoordinator {
      * Initializes a new instance of the {CommandCoordinator} class.
      * @param {ICommandInputValidators} _commandInputValidators - The system for working with input validators.
      */
-    constructor(private _commandInputValidators: ICommandInputValidators) {
+    constructor(private _commandInputValidators: ICommandInputValidators = new CommandInputValidators()) {
     }
 
     /**

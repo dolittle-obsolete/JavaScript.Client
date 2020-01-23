@@ -11,11 +11,7 @@ describe('when creating from command', () => {
     command.someInteger = 42;
     command.someString = 'fourty two';
 
-    let command_request: CommandRequest;
-
-    beforeEach(() => {
-        command_request = CommandRequest.createFrom(command);
-    });
+    const command_request = CommandRequest.createFrom(command);
 
     it('should return an instance', () => expect(command_request).to.not.be.null);
     it('should set a correlation id', () => command_request.correlationId.should.not.equal(''));
