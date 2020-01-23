@@ -3,7 +3,7 @@
 
 import { CommandRequest, CommandResult, ICommandCoordinator } from './index';
 import { ICommand } from '@dolittle/sdk.commands';
-import { ICommandInputValidators } from '@dolittle/sdk.commands.validation';
+import { ICommandInputValidators, CommandInputValidators } from '@dolittle/sdk.commands.validation';
 
 const beforeHandleCallbacks: ((options: RequestInit) => void)[] = [];
 
